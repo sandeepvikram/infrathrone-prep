@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Automate Navigation - Complete Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .nav-menu {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .nav-menu h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #764ba2;
+        }
+        
+        .section-letter {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 8px;
+            font-size: 0.7em;
+            margin-right: 10px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .card h4 {
+            color: #764ba2;
+            margin: 15px 0 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .card ul {
+            padding-left: 20px;
+        }
+        
+        .card li {
+            padding: 6px 0;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .card p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 6px solid #667eea;
+        }
+        
+        .highlight-box strong {
+            color: #667eea;
+            font-size: 1.2em;
+        }
+        
+        .interview-tip {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ff6b6b;
+            margin: 20px 0;
+        }
+        
+        .interview-tip strong {
+            color: #ff6b6b;
+            font-size: 1.1em;
+        }
+        
+        .location-box {
+            background: #e8f4f8;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .check-list {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+            margin: 20px 0;
+        }
+        
+        .check-list h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .check-list ul {
+            padding-left: 25px;
+        }
+        
+        .check-list li {
+            padding: 8px 0;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        .practice-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            margin: 30px 0;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .practice-box h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .practice-box h4 {
+            font-size: 1.4em;
+            margin: 20px 0 15px 0;
+            color: #ffd700;
+        }
+        
+        .practice-box ul {
+            padding-left: 25px;
+        }
+        
+        .practice-box li {
+            padding: 8px 0;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+        
+        .step-box {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .footer h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .footer p {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .badge-critical {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .badge-important {
+            background: #ffd700;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>🧭 Power Automate Navigation Guide</h1>
+            <p>Complete UI Walkthrough | Where Everything Lives | 30-Min Practice Routine</p>
+        </div>
+        
+        <!-- Navigation Menu -->
+        <div class="nav-menu">
+            <h3>📍 Quick Navigation</h3>
+            <div class="nav-grid">
+                <button class="nav-btn" onclick="document.getElementById('pa-nav').scrollIntoView({behavior: 'smooth'})">Power Automate</button>
+                <button class="nav-btn" onclick="document.getElementById('ppac-nav').scrollIntoView({behavior: 'smooth'})">PPAC Admin</button>
+                <button class="nav-btn" onclick="document.getElementById('m365-nav').scrollIntoView({behavior: 'smooth'})">M365 Systems</button>
+                <button class="nav-btn" onclick="document.getElementById('practice').scrollIntoView({behavior: 'smooth'})">30-Min Practice</button>
+            </div>
+        </div>
+        
+        <!-- SECTION A: POWER AUTOMATE NAVIGATION -->
+        <div class="section" id="pa-nav">
+            <h2 class="section-title"><span class="section-letter">SECTION A</span>POWER AUTOMATE NAVIGATION</h2>
+            
+            <div class="highlight-box">
+                <strong>Your Goal:</strong><br>
+                Know exactly where to click for flows, run history, connections, solutions, approvals, and analytics. This visual confidence makes you sound like someone who actually uses PA daily.
+            </div>
+            
+            <div class="grid">
+                <!-- 1. Environment Switcher -->
+                <div class="card">
+                    <h3>1️⃣ Environment Switcher</h3>
+                    <div class="location-box">📍 Location: Top-right corner</div>
+                    <h4>Check:</h4>
+                    <ul>
+                        <li>Dev</li>
+                        <li>Test</li>
+                        <li>Prod</li>
+                        <li>Default</li>
+                        <li>Sandbox</li>
+                    </ul>
+                    <div class="interview-tip" style="margin-top: 15px;">
+                        <strong>💬 Interview Line:</strong><br>
+                        "I'm comfortable switching between Dev, Test, and Prod to check flows, connections, and environment variables."
+                    </div>
+                </div>
+                
+                <!-- 2. My Flows -->
+                <div class="card">
+                    <h3>2️⃣ My Flows</h3>
+                    <div class="location-box">📍 Location: Left panel → My flows</div>
+                    <h4>Check in each flow:</h4>
+                    <ul>
+                        <li>On/off toggle</li>
+                        <li>Modified date</li>
+                        <li>Owner</li>
+                        <li>Connections used</li>
+                        <li>Environment</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Click any flow → see its Details page</p>
+                </div>
+                
+                <!-- 3. Flow Details Page -->
+                <div class="card">
+                    <h3>3️⃣ Flow Details Page</h3>
+                    <div class="location-box">📍 Location: Open any flow (view, not edit)</div>
+                    <h4>You'll see:</h4>
+                    <p><strong>✔ Overview tab:</strong></p>
+                    <ul>
+                        <li>Trigger type</li>
+                        <li>Description</li>
+                        <li>Connections used</li>
+                        <li>Flow URL</li>
+                        <li>Owner</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>✔ Run History:</strong></p>
+                    <ul>
+                        <li>Succeeded / Failed</li>
+                        <li>Start time</li>
+                        <li>Duration</li>
+                        <li>Who triggered</li>
+                        <li>Environment</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Click any run → see:</strong></p>
+                    <ul>
+                        <li>Every step</li>
+                        <li>Inputs & Outputs</li>
+                        <li>Error messages</li>
+                        <li>Approval responses</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-weight: 600; color: #667eea;">This alone gives you 50% visual confidence!</p>
+                </div>
+                
+                <!-- 4. Flow Checker -->
+                <div class="card">
+                    <h3>4️⃣ Flow Checker</h3>
+                    <div class="location-box">📍 Location: Editor view → Top right</div>
+                    <h4>You'll see:</h4>
+                    <ul>
+                        <li>Warnings</li>
+                        <li>Errors</li>
+                        <li>DLP violations</li>
+                        <li>Missing inputs</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Just seeing the UI makes your interview answers cleaner</p>
+                </div>
+                
+                <!-- 5. Data → Connections -->
+                <div class="card">
+                    <h3>5️⃣ Data → Connections <span class="badge badge-important">VERY IMPORTANT</span></h3>
+                    <div class="location-box">📍 Location: Left menu → Data → Connections</div>
+                    <h4>Check:</h4>
+                    <ul>
+                        <li>All connectors your tenant uses</li>
+                        <li>Which ones are broken (yellow warning)</li>
+                        <li>Identities used</li>
+                        <li>Who created each connection</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Click any connection → see:</strong></p>
+                    <ul>
+                        <li>Connection details</li>
+                        <li>Re-authenticate option</li>
+                        <li>Flows using it</li>
+                    </ul>
+                    <div class="interview-tip" style="margin-top: 15px;">
+                        <strong>💬 Interview Line:</strong><br>
+                        "When flows fail, Connections is one of the first places I look."
+                    </div>
+                </div>
+                
+                <!-- 6. Custom Connectors -->
+                <div class="card">
+                    <h3>6️⃣ Data → Custom Connectors</h3>
+                    <div class="location-box">📍 Location: Left menu → Data → Custom Connectors</div>
+                    <h4>If your enterprise has any, check:</h4>
+                    <ul>
+                        <li>Names</li>
+                        <li>Authentication methods</li>
+                        <li>Actions exposed</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Gives you confidence to speak about APIs</p>
+                </div>
+                
+                <!-- 7. Solutions -->
+                <div class="card">
+                    <h3>7️⃣ Solutions <span class="badge badge-critical">EXTREMELY IMPORTANT</span></h3>
+                    <div class="location-box">📍 Location: Left menu → Solutions</div>
+                    <h4>Open any solution (read-only), look at:</h4>
+                    <ul>
+                        <li>Connection references</li>
+                        <li>Environment variables</li>
+                        <li>Flows</li>
+                        <li>Child flows</li>
+                        <li>Custom connectors</li>
+                        <li>Tables</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Click on Connection References:</strong></p>
+                    <p>See how each connector is mapped to a specific identity</p>
+                    <p style="margin-top: 15px;"><strong>Click on Environment Variables:</strong></p>
+                    <ul>
+                        <li>Variable name</li>
+                        <li>Type</li>
+                        <li>Default value</li>
+                        <li>Current environment value</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-weight: 600; color: #667eea;">This makes your ALM story 10x stronger!</p>
+                </div>
+                
+                <!-- 8. Approvals Center -->
+                <div class="card">
+                    <h3>8️⃣ Approvals Center</h3>
+                    <div class="location-box">📍 Location: Left panel → Action items → Approvals</div>
+                    <h4>You'll see:</h4>
+                    <ul>
+                        <li>Sent approvals</li>
+                        <li>Received approvals</li>
+                        <li>In-progress</li>
+                        <li>Completed</li>
+                        <li>Failed</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">This is EXACTLY how you check real approval problems in production</p>
+                </div>
+                
+                <!-- 9. Analytics -->
+                <div class="card">
+                    <h3>9️⃣ Power Automate Analytics</h3>
+                    <div class="location-box">📍 Location: Left panel → Monitor<br>(OR inside PPAC → Analytics → Power Automate)</div>
+                    <h4>You may see:</h4>
+                    <ul>
+                        <li>Flow performance</li>
+                        <li>Failure rate</li>
+                        <li>Trigger count</li>
+                        <li>Connector usage</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Even if limited, the UI layout matters</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION B: PPAC NAVIGATION -->
+        <div class="section" id="ppac-nav">
+            <h2 class="section-title"><span class="section-letter">SECTION B</span>PPAC NAVIGATION (ADMIN CENTER)</h2>
+            
+            <div class="highlight-box">
+                <strong>Your Access:</strong><br>
+                Your account may have limited access — but that's fine. Even the limited view gives you visual structure and shows you understand enterprise governance.
+            </div>
+            
+            <div class="grid">
+                <!-- 1. Environments -->
+                <div class="card">
+                    <h3>1️⃣ Environments</h3>
+                    <div class="location-box">📍 Location: Left menu → Environments</div>
+                    <h4>Observe:</h4>
+                    <ul>
+                        <li>Names (Dev, Test, Prod)</li>
+                        <li>Region</li>
+                        <li>Type (Production, Sandbox)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Open any environment → see:</strong></p>
+                    <ul>
+                        <li>Users</li>
+                        <li>Resources</li>
+                        <li>Capacity</li>
+                        <li>DLP policies</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Even read-only mode is fine</p>
+                </div>
+                
+                <!-- 2. Analytics -->
+                <div class="card">
+                    <h3>2️⃣ Analytics → Power Automate</h3>
+                    <div class="location-box">📍 Location: Left menu → Analytics</div>
+                    <h4>Open:</h4>
+                    <ul>
+                        <li>Power Automate</li>
+                        <li>Dataverse (if enabled)</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Inside analytics:</strong></p>
+                    <ul>
+                        <li>Failure trends</li>
+                        <li>Run insights</li>
+                        <li>API usage</li>
+                        <li>Connector throttling</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Even if blank, you understand the UI</p>
+                </div>
+                
+                <!-- 3. DLP Policies -->
+                <div class="card">
+                    <h3>3️⃣ DLP Policies <span class="badge badge-important">IMPORTANT</span></h3>
+                    <div class="location-box">📍 Location: Left menu → Policies → Data policies</div>
+                    <h4>Open any policy (read-only):</h4>
+                    <ul>
+                        <li>See which connectors are blocked</li>
+                        <li>See "Business" vs "Non-business" categories</li>
+                        <li>See what your automation can/can't do</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-weight: 600; color: #667eea;">You'll look like someone who actually worked in governance!</p>
+                </div>
+                
+                <!-- 4. Security -->
+                <div class="card">
+                    <h3>4️⃣ Security</h3>
+                    <div class="location-box">📍 Location: Left → Security</div>
+                    <h4>You might see:</h4>
+                    <ul>
+                        <li>Roles</li>
+                        <li>Groups</li>
+                        <li>Permissions</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Helps you talk about identity</p>
+                </div>
+                
+                <!-- 5. Resources → Connections -->
+                <div class="card">
+                    <h3>5️⃣ Resources → Connections</h3>
+                    <div class="location-box">📍 Location: Admin view</div>
+                    <h4>Shows:</h4>
+                    <ul>
+                        <li>ALL connections</li>
+                        <li>Which user created</li>
+                        <li>Locations</li>
+                        <li>Status</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Understand where failures come from</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION C: M365 NAVIGATION -->
+        <div class="section" id="m365-nav">
+            <h2 class="section-title"><span class="section-letter">SECTION C</span>M365 SYSTEMS NAVIGATION</h2>
+            
+            <div class="highlight-box">
+                <strong>Why This Matters:</strong><br>
+                These are simple but important visual confirmations. You need to see where your flow actions actually land in the real systems.
+            </div>
+            
+            <div class="grid">
+                <!-- 1. SharePoint -->
+                <div class="card">
+                    <h3>1️⃣ SharePoint</h3>
+                    <h4>Open and check:</h4>
+                    <ul>
+                        <li>SharePoint sites</li>
+                        <li>Document libraries</li>
+                        <li>Lists</li>
+                        <li>Metadata columns</li>
+                        <li>Logs list (create one if allowed)</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">Helps you visualize all the actions you explain in interviews</p>
+                </div>
+                
+                <!-- 2. Teams -->
+                <div class="card">
+                    <h3>2️⃣ Teams</h3>
+                    <h4>Go to:</h4>
+                    <ul>
+                        <li>Team channels</li>
+                        <li>See flow bots posting messages</li>
+                        <li>Understand notification patterns</li>
+                    </ul>
+                </div>
+                
+                <!-- 3. Outlook -->
+                <div class="card">
+                    <h3>3️⃣ Outlook</h3>
+                    <h4>Check:</h4>
+                    <ul>
+                        <li>Flow emails</li>
+                        <li>Approval mails</li>
+                        <li>Automated notifications</li>
+                    </ul>
+                </div>
+                
+                <!-- 4. Azure Portal -->
+                <div class="card">
+                    <h3>4️⃣ Azure Portal (if available)</h3>
+                    <h4>Just open and search:</h4>
+                    <ul>
+                        <li>"Function App"</li>
+                        <li>"Cognitive Services"</li>
+                        <li>"API Management"</li>
+                        <li>"App Registrations"</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">READ-ONLY view is okay</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 30-MINUTE PRACTICE ROUTINE -->
+        <div class="section" id="practice">
+            <h2 class="section-title">⏱️ 30-MINUTE VISUAL PRACTICE ROUTINE</h2>
+            
+            <div class="practice-box">
+                <h3>🎯 This Will Give You MASSIVE Confidence</h3>
+                <p style="font-size: 1.1em; margin-bottom: 25px;">Do this tomorrow. It takes 30 minutes and makes you sound like someone who lives in Power Automate daily.</p>
+                
+                <div class="step-box">
+                    <h4>✔ Step 1: Open Power Automate (5 min)</h4>
+                    <p><strong>Look at:</strong></p>
+                    <ul>
+                        <li>My flows</li>
+                        <li>Trigger types</li>
+                        <li>Run history</li>
+                        <li>Inputs/Outputs</li>
+                    </ul>
+                </div>
+                
+                <div class="step-box">
+                    <h4>✔ Step 2: Open Solutions (5 min)</h4>
+                    <p><strong>Look inside:</strong></p>
+                    <ul>
+                        <li>Connection references</li>
+                        <li>Environment variables</li>
+                    </ul>
+                </div>
+                
+                <div class="step-box">
+                    <h4>✔ Step 3: Open Data → Connections (3 min)</h4>
+                    <p><strong>Identify:</strong></p>
+                    <ul>
+                        <li>Service account connections</li>
+                        <li>Broken connections</li>
+                    </ul>
+                </div>
+                
+                <div class="step-box">
+                    <h4>✔ Step 4: Open Approvals (3 min)</h4>
+                    <p><strong>See:</strong></p>
+                    <ul>
+                        <li>Real approval data</li>
+                        <li>Sent/Received/In-progress</li>
+                    </ul>
+                </div>
+                
+                <div class="step-box">
+                    <h4>✔ Step 5: Open PPAC (5 min)</h4>
+                    <p><strong>Check:</strong></p>
+                    <ul>
+                        <li>Environments</li>
+                        <li>Analytics</li>
+                        <li>DLP policies</li>
+                    </ul>
+                </div>
+                
+                <div class="step-box">
+                    <h4>✔ Step 6: Open SharePoint (5 min)</h4>
+                    <p><strong>Browse:</strong></p>
+                    <ul>
+                        <li>Document libraries</li>
+                        <li>Lists</li>
+                        <li>Content types</li>
+                    </ul>
+                </div>
+                
+                <div class="step-box">
+                    <h4>✔ Step 7: Open Teams (4 min)</h4>
+                    <p><strong>See:</strong></p>
+                    <ul>
+                        <li>Channels where automation alerts come</li>
+                        <li>Flow bot messages</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 30px;">
+                <strong>After This 30-Minute Practice:</strong><br><br>
+                ✅ You'll know exactly where everything lives<br>
+                ✅ You can confidently say "I check run history, connections, and PPAC analytics"<br>
+                ✅ You'll sound like someone who uses PA daily, not just read about it<br>
+                ✅ Your interview answers will have visual backing<br>
+                ✅ You'll understand the FULL platform, not just flows<br><br>
+                <strong>This is the difference between "I know Power Automate" and "I work with Power Automate."</strong>
+            </div>
+        </div>
+        
+        <!-- Quick Reference -->
+        <div class="section">
+            <h2 class="section-title">📌 Quick Reference - Where to Find Everything</h2>
+            
+            <div class="check-list">
+                <h4>🔍 Troubleshooting a Failed Flow</h4>
+                <ul>
+                    <li>My Flows → Select flow → Run History → Click failed run → Check Inputs/Outputs</li>
+                    <li>Data → Connections → Check for yellow warnings or broken connections</li>
+                    <li>Flow Checker (in editor) → Look for DLP violations or schema errors</li>
+                </ul>
+            </div>
+            
+            <div class="check-list">
+                <h4>🔍 Checking Environment Setup</h4>
+                <ul>
+                    <li>Environment Switcher (top-right) → Confirm you're in correct environment</li>
+                    <li>Solutions → Check environment variables and connection references</li>
+                    <li>PPAC → Environments → Check DLP and capacity</li>
+                </ul>
+            </div>
+            
+            <div class="check-list">
+                <h4>🔍 Monitoring Production Flows</h4>
+                <ul>
+                    <li>My Flows → Check flow status (On/Off)</li>
+                    <li>Run History → Check success/failure trends</li>
+                    <li>PPAC → Analytics → Power Automate → Check failure patterns</li>
+                    <li>SharePoint → Logs list → Check audit entries</li>
+                </ul>
+            </div>
+            
+            <div class="check-list">
+                <h4>🔍 Managing Approvals</h4>
+                <ul>
+                    <li>Action Items → Approvals → See all sent/received approvals</li>
+                    <li>Run History → Check approval outcomes in flow runs</li>
+                    <li>Outlook/Teams → See approval notifications</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <h3>🎯 You're Now Navigation-Ready!</h3>
+            <p>You know exactly where to find flows, run history, connections, solutions, environment variables, DLP policies, approvals, analytics, and all M365 integrations.</p>
+            <p style="margin-top: 20px; font-weight: 600;">Do the 30-minute practice routine tomorrow and you'll sound like a Power Automate pro in your interview! 🚀</p>
+        </div>
+    </div>
+</body>
+</html>
