@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Examples - Complete Interview Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        
+        /* HEADER */
+        .hero-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+            color: white;
+        }
+        
+        .hero-header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+        }
+        
+        /* CATEGORY SECTION */
+        .category-section {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .category-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            color: white;
+            text-align: center;
+        }
+        
+        .category-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .category-header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        /* MASTER EXAMPLE CARD */
+        .master-example {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            border-left: 8px solid #667eea;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        }
+        
+        .example-title {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            font-size: 1.6em;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .use-for-box {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .use-for-box h4 {
+            color: #d35400;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .use-for-box p {
+            color: #2c3e50;
+            font-size: 1.05em;
+        }
+        
+        /* STAR SECTION */
+        .star-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .star-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-top: 5px solid #667eea;
+        }
+        
+        .star-card h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e3f2fd;
+        }
+        
+        .star-card h3 .emoji {
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+        
+        .star-card p {
+            color: #2c3e50;
+            line-height: 1.8;
+            font-size: 1.05em;
+            margin: 12px 0;
+        }
+        
+        .star-card ul {
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+        
+        .star-card li {
+            color: #2c3e50;
+            padding: 6px 0;
+            line-height: 1.7;
+        }
+        
+        /* RCA PATH BOX */
+        .rca-path {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 6px solid #667eea;
+        }
+        
+        .rca-path h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .rca-path ol {
+            padding-left: 25px;
+        }
+        
+        .rca-path li {
+            padding: 8px 0;
+            color: #2c3e50;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        
+        .rca-path strong {
+            color: #667eea;
+        }
+        
+        /* STEP CARDS */
+        .step-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #f5576c;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .step-card h4 {
+            color: #f5576c;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+        
+        .step-card p {
+            color: #2c3e50;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        
+        .step-card ul {
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+        
+        .step-card li {
+            padding: 5px 0;
+            color: #2c3e50;
+        }
+        
+        /* RESULT BOX */
+        .result-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 25px;
+            border-left: 6px solid #4caf50;
+        }
+        
+        .result-box h3 {
+            color: #2e7d32;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .result-box ul {
+            padding-left: 25px;
+        }
+        
+        .result-box li {
+            color: #2c3e50;
+            padding: 8px 0;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        
+        /* KEYWORDS BOX */
+        .keywords-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #fff9e1 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 25px;
+            border-left: 6px solid #ffc107;
+        }
+        
+        .keywords-box h4 {
+            color: #f57c00;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .keyword-tag {
+            display: inline-block;
+            background: white;
+            color: #f57c00;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-weight: 600;
+            font-size: 0.95em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* TABLE STYLES */
+        .priority-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .priority-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+        
+        .priority-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #2c3e50;
+        }
+        
+        .priority-table tr:hover {
+            background: #f5f7fa;
+        }
+        
+        /* QUOTE BOX */
+        .quote-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #2196f3;
+            font-style: italic;
+            color: #1565c0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        /* CODE SNIPPET */
+        .code-snippet {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            overflow-x: auto;
+        }
+        
+        /* NAVIGATION */
+        .nav-menu {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        
+        .nav-menu h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .nav-menu a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            margin: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .footer h3 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .footer p {
+            color: #666;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- HERO HEADER -->
+        <div class="hero-header">
+            <h1>🎯 Master Examples Guide</h1>
+            <p>Complete STAR Breakdown for All Interview Questions</p>
+        </div>
+        
+        <!-- NAVIGATION -->
+        <div class="nav-menu">
+            <h3>📑 Quick Navigation</h3>
+            <a href="#cat1">Communication & People</a>
+            <a href="#cat2">Problem-Solving & RCA</a>
+            <a href="#cat3">Pressure & Ownership</a>
+            <a href="#cat4">Learning & Adaptability</a>
+            <a href="#cat5">Scenario Questions</a>
+        </div>
+        
+        <!-- CATEGORY MAPPING TABLE -->
+        <div style="background: white; padding: 50px; border-radius: 25px; margin-bottom: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+            <h2 style="color: #667eea; font-size: 2.5em; text-align: center; margin-bottom: 30px;">📊 The 5 Categories - Question Mapping</h2>
+            <p style="text-align: center; color: #666; font-size: 1.2em; margin-bottom: 40px;">These 5 categories cover ALL 20 behavioral questions perfectly for SPW</p>
+            
+            <table class="priority-table" style="margin: 30px 0;">
+                <tr>
+                    <th style="width: 25%;">Category</th>
+                    <th style="width: 40%;">Questions Covered</th>
+                    <th style="width: 35%;">ONE Example to Use</th>
+                </tr>
+                <tr>
+                    <td><strong>1. Communication & Stakeholders</strong></td>
+                    <td>
+                        • Explain technical to non-technical<br>
+                        • Work with ops/service team<br>
+                        • Unhappy stakeholder<br>
+                        • Collaborate across teams<br>
+                        • Give updates during issue
+                    </td>
+                    <td>Conduent flow failure → explaining to ops / client</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Problem-Solving & Failures</strong></td>
+                    <td>
+                        • Something you built failed<br>
+                        • Solve problem without full info<br>
+                        • Prevent recurring issue<br>
+                        • Diagnosing run history failures<br>
+                        • Troubleshooting under uncertainty
+                    </td>
+                    <td>Azure Function 403 error → debugging + fixing</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Pressure, Prioritization, Ownership</strong></td>
+                    <td>
+                        • Handle pressure<br>
+                        • Multiple priorities<br>
+                        • Taking ownership<br>
+                        • Managing incidents + BAU<br>
+                        • Handling urgent stakeholders
+                    </td>
+                    <td>Conduent BAU + multiple issues + calm handling</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Learning, Growth, Feedback</strong></td>
+                    <td>
+                        • Learning new tool quickly<br>
+                        • Receiving constructive feedback<br>
+                        • Figured something out<br>
+                        • Personal development<br>
+                        • Recent achievement
+                    </td>
+                    <td>Learning PA/Azure Function quickly for freelance</td>
+                </tr>
+                <tr>
+                    <td><strong>5. Scenario-Based Thinking</strong></td>
+                    <td>
+                        • Flow failing in production<br>
+                        • Permissions issue<br>
+                        • Poorly documented flow inherited<br>
+                        • Governance/DLP blocking<br>
+                        • All "How would you handle..." questions
+                    </td>
+                    <td>Run history → investigate → comms → fix → prevent</td>
+                </tr>
+            </table>
+            
+            <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 30px; border-radius: 15px; margin-top: 40px; border-left: 6px solid #4caf50;">
+                <h3 style="color: #2e7d32; font-size: 1.5em; margin-bottom: 15px;">✅ Why This Mapping Works for SPW:</h3>
+                <ul style="padding-left: 25px; color: #2c3e50; font-size: 1.1em; line-height: 2;">
+                    <li><strong>SPW LOVES communication-heavy examples</strong> - Category 1 covers any teamwork/stakeholder question</li>
+                    <li><strong>Panels love practical problem-solving</strong> - Category 2 sounds real and relatable</li>
+                    <li><strong>Perfect BAU/Support style</strong> - Category 3 shows you can handle operational pressure</li>
+                    <li><strong>Growth mindset matters more than technical skills</strong> - Category 4 shows coachability</li>
+                    <li><strong>Thinking style is crucial</strong> - Category 5 shows the structured approach Sam & Ali expect</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 1: COMMUNICATION & HANDLING PEOPLE -->
+        <div class="category-section" id="cat1">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 1</h2>
+                <p>Communication & Handling People</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #fff3cd 0%, #fff9e1 100%); padding: 30px; border-radius: 15px; margin-bottom: 35px; border-left: 6px solid #ffc107;">
+                <h3 style="color: #f57c00; font-size: 1.5em; margin-bottom: 20px;">📋 Questions This Category Covers:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Explain technical to non-technical
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Work with ops/service team
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Unhappy stakeholder
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Collaborate across teams
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Give updates during issue
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Example:</strong> Conduent flow failure → explaining to ops/client
+                </p>
+            </div>
+            
+            <!-- MASTER EXAMPLE 1 -->
+            <div class="master-example">
+                <div class="example-title">
+                    MASTER EXAMPLE 1: SR Flow Failure (CRM Connector Issue)
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>Explaining technical issues • Handling unhappy users • Working with ops/service teams</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>SR routing flow suddenly started failing at Conduent. LRDS back-office team raised it urgently because several SRs were stuck in "Pending Routing."</p>
+                        <p>They're not technical, so the frustration was mainly because they couldn't see what was blocking their queue.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>My responsibility was two-fold:</p>
+                        <ul>
+                            <li>Investigate quickly without panicking the team</li>
+                            <li>Communicate clearly at each step, because the LRDS team had to keep working while I diagnosed the issue</li>
+                        </ul>
+                        <p>I wanted to be <strong>proactive, keep them in the loop</strong>, and make sure the explanation didn't sound too technical.</p>
+                    </div>
+                </div>
+                
+                <div class="rca-path">
+                    <h4>🔍 My Standard RCA Path:</h4>
+                    <ol>
+                        <li><strong>Run History</strong> → Open Failed Run</li>
+                        <li><strong>Check Trigger Inputs</strong></li>
+                        <li><strong>Check CRM Connector Outputs</strong></li>
+                        <li><strong>Check Conditions / Parse JSON actions</strong></li>
+                        <li><strong>Validate Connection References</strong></li>
+                        <li><strong>Identify error codes</strong> (this case: 400 – Bad Request)</li>
+                    </ol>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 1 – RCA Path Execution</h4>
+                        <p>Inside Power Automate:</p>
+                        <p><strong>Flow → Runs → Failed Run → Expand "Get Row (CRM)" → Show Raw Inputs/Outputs</strong></p>
+                        <p>I saw the CRM connector started returning <strong>empty fields for CaseOwnerId and Department</strong> because a CRM update changed the schema.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 – Explain to Non-Technical Team</h4>
+                        <div class="quote-box">
+                            "The system is trying to read two fields that were recently renamed in CRM, so the automation can't decide where to route the SR. I'm updating the mapping now — I'll give you a checkpoint in 10 minutes."
+                        </div>
+                        <p>I kept updates every 10–15 minutes. This kept them calm. They appreciated that I wasn't hiding anything.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 – Fix</h4>
+                        <p>Inside the flow:</p>
+                        <ul>
+                            <li>Opened Parse JSON → Edit Schema</li>
+                            <li>Added the new CRM fields</li>
+                            <li>Updated all dynamic content references</li>
+                            <li>Re-saved and ran a manual test on a dummy SR</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 4 – Validate</h4>
+                        <p>Once re-run, the flow completed and moved the SR to the correct queue.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 5 – Close the Loop</h4>
+                        <div class="quote-box">
+                            "It's fixed. CRM changed the field names this morning. I've updated the flow mapping and added a defensive check so this won't break again."
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>SRs started moving within minutes</li>
+                        <li>LRDS team said the explanation made sense and reduced their stress</li>
+                        <li>Added a pre-validation check in the flow so missing fields trigger a graceful fail instead of blocking the queue</li>
+                        <li>Built trust because I stayed calm, proactive, collaborative, and transparent</li>
+                        <li>Reduced similar failures by <strong>80%</strong> over the next few weeks</li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Keywords Used:</h4>
+                    <span class="keyword-tag">Clear communication</span>
+                    <span class="keyword-tag">Proactive updates</span>
+                    <span class="keyword-tag">Translating technical to non-technical</span>
+                    <span class="keyword-tag">RCA path</span>
+                    <span class="keyword-tag">Connector outputs</span>
+                    <span class="keyword-tag">Schema change</span>
+                    <span class="keyword-tag">Collaboration with ops</span>
+                    <span class="keyword-tag">Building trust</span>
+                    <span class="keyword-tag">Calm under pressure</span>
+                </div>
+            </div>
+            
+            <!-- MASTER EXAMPLE 2 -->
+            <div class="master-example">
+                <div class="example-title">
+                    MASTER EXAMPLE 2: Azure Function 403 Failure (Freelance)
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>Cross-team collaboration • Service teams • Cloud teams • Unhappy stakeholders • Explaining Azure-side issues</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>In my freelance project, one approval workflow started failing mid-week. The client messaged saying approvals weren't moving and employees were stuck.</p>
+                        <p>They had no idea what "403" meant — they just saw "Automation Error" in Teams and panicked.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>I had to:</p>
+                        <ul>
+                            <li>Identify what broke between Power Automate → Azure Function → Graph API</li>
+                            <li>Explain it clearly to a completely non-technical client</li>
+                            <li>Work with the cloud engineer to fix the identity/permission issue fast</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rca-path">
+                    <h4>🔍 Cross-System RCA Checklist:</h4>
+                    <ol>
+                        <li><strong>Power Automate Run History</strong>
+                            <ul>
+                                <li>Check HTTP call output</li>
+                                <li>See error code (403 Forbidden)</li>
+                                <li>Check whether SP item was updated</li>
+                            </ul>
+                        </li>
+                        <li><strong>Azure Portal</strong>
+                            <ul>
+                                <li>Function App → Monitor → Invocation Logs</li>
+                                <li>Check if request reached the function</li>
+                                <li>Errors showed: "AuthorizationFailed – AppRoleAssignmentMissing"</li>
+                            </ul>
+                        </li>
+                        <li><strong>Azure AD → Enterprise Applications</strong>
+                            <ul>
+                                <li>Found the Managed Identity lost Mail.Send and Directory.Read.All permissions after tenant security hardening</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 – Explain to Client in Simple Language</h4>
+                        <div class="quote-box">
+                            "The automation couldn't talk to Microsoft 365 because one of the permissions silently expired during a security update. The system basically said 'you're not allowed to do this'. I'm fixing it now."
+                        </div>
+                        <p>This kept them calm and confident.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 – Work with Cloud Engineer + Fix</h4>
+                        <p>I collaborated with their Azure engineer:</p>
+                        <ul>
+                            <li>We re-assigned the necessary Graph API permissions</li>
+                            <li>Re-granted admin consent</li>
+                            <li>Restarted the Function App</li>
+                            <li>Back in Power Automate → refreshed the connection reference</li>
+                            <li>Ran a manual replay with a test item</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 4 – Preventive Improvement</h4>
+                        <p>I added:</p>
+                        <ul>
+                            <li>A Try/Catch scope in Power Automate</li>
+                            <li>Logging to a separate SP list: FunctionStatus, StatusCode, ErrorMessage</li>
+                            <li>A daily lightweight test-run to detect permission expiry early</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>Approvals resumed within <strong>40 minutes</strong></li>
+                        <li>Client appreciated the calm, structured explanation</li>
+                        <li>Reduced future identity-related failures dramatically</li>
+                        <li>They praised the "proactive communication" and "clarity" — which matters more than the fix itself</li>
+                        <li>Showed collaborative, cross-team troubleshooting</li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Keywords Used:</h4>
+                    <span class="keyword-tag">Cross-system troubleshooting</span>
+                    <span class="keyword-tag">Managed Identity</span>
+                    <span class="keyword-tag">Graph API permissions</span>
+                    <span class="keyword-tag">Collaboration with cloud engineer</span>
+                    <span class="keyword-tag">Calm explanation</span>
+                    <span class="keyword-tag">Proactive prevention</span>
+                    <span class="keyword-tag">Structured communication</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 2: PROBLEM-SOLVING & RCA -->
+        <div class="category-section" id="cat2">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 2</h2>
+                <p>Problem-Solving & Root-Cause Analysis</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #fff3cd 0%, #fff9e1 100%); padding: 30px; border-radius: 15px; margin-bottom: 35px; border-left: 6px solid #ffc107;">
+                <h3 style="color: #f57c00; font-size: 1.5em; margin-bottom: 20px;">📋 Questions This Category Covers:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Something you built failed
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Solve problem without full info
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Prevent recurring issue
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Diagnosing run history failures
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Troubleshooting under uncertainty
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Example:</strong> Azure Function 403 error OR LRDS flow classification failure
+                </p>
+            </div>
+            
+            <!-- MASTER EXAMPLE 1 -->
+            <div class="master-example">
+                <div class="example-title">
+                    MASTER EXAMPLE 1: LRDS Flow Classification Issue
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>"Something failed" • "Incomplete info" • "How you solved a problem" • "Recurring issue" • "RCA path"</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>One morning we noticed several SRs routed to the wrong team — LRDS got penalty-related SRs and the Penalty Team got general queries.</p>
+                        <p>There was no error in Teams or Outlook, but the pattern looked wrong.</p>
+                        <p>This is the kind of issue where the symptoms appear in operations, not in the system, so you don't get direct technical clues.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>My responsibility was:</p>
+                        <ul>
+                            <li>Identify what caused the mis-routing</li>
+                            <li>Fix it quickly before the queue became worse</li>
+                            <li>Prevent the same mistake from happening again</li>
+                        </ul>
+                        <p>This required both technical debugging and talking to ops calmly to gather context.</p>
+                    </div>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 1 — My RCA Path (Always Same Structure)</h4>
+                        <p>I followed my usual diagnostic flow:</p>
+                        <ul>
+                            <li>Power Automate → Run History → Filter → Last 10 Runs</li>
+                            <li>For each run: expand Trigger Inputs, Decision Condition, Classification Step, Routing Logic (Switch)</li>
+                        </ul>
+                        <p>Technically everything ran "green," which meant system didn't see it as an error.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 — Investigate Classification Step</h4>
+                        <p>I zoomed in on the tile classification logic in the flow.</p>
+                        <p>Inside the flow:</p>
+                        <ul>
+                            <li>Open Action → "Get CRM Row → Description"</li>
+                            <li>Check dynamic content passed into "Condition: contains('Penalty')"</li>
+                        </ul>
+                        <p><strong>The CRM description field had changed</strong> — instead of "Penalty", the new template used "PCN" (Penalty Charge Notice).</p>
+                        <p>The automation was looking for the old keyword, so it routed based on a partial match.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 — Validate by Checking CRM Change Logs</h4>
+                        <p>I opened:</p>
+                        <p><strong>CRM → Settings → Audit Summary → Entity: Case → Fields: Description Template</strong></p>
+                        <p>Confirmed that the templates were updated by the CRM config team earlier that week.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 4 — Fix</h4>
+                        <p>Inside the flow:</p>
+                        <ul>
+                            <li>Updated the match logic to search for both "Penalty" AND "PCN"</li>
+                            <li>Added a fallback case: if neither exists → route to a verification bucket</li>
+                            <li>Wrapped the condition in a clean Compose + Contains block for readability</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 5 — Communicate with Ops</h4>
+                        <div class="quote-box">
+                            "CRM changed their wording, so our automation wasn't catching penalty cases correctly. I've updated the logic and added a fallback check so this won't happen again."
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>Mis-routing stopped immediately</li>
+                        <li><strong>15+ SRs</strong> were corrected within minutes</li>
+                        <li>Added a fallback to prevent similar failures</li>
+                        <li>LRDS appreciated the clarity and said the fix reduced their manual correction work by <strong>30%</strong></li>
+                        <li>I documented the change and proactively informed the CRM team, strengthening cross-team trust</li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Soft Skills Shown:</h4>
+                    <span class="keyword-tag">Proactive thinking</span>
+                    <span class="keyword-tag">Structured problem-solving</span>
+                    <span class="keyword-tag">Calm communication</span>
+                    <span class="keyword-tag">Collaboration with CRM</span>
+                    <span class="keyword-tag">Ownership</span>
+                </div>
+            </div>
+            
+            <!-- MASTER EXAMPLE 2 -->
+            <div class="master-example">
+                <div class="example-title">
+                    MASTER EXAMPLE 2: Azure Function 500 Error (Internal Logic Failure)
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>"Incomplete information" • "Major failure" • "Big RCA" • "Debugging Azure + PA" • "Prevent recurring issues"</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>In my freelance automation, one day the Azure Function started returning <strong>500 Internal Server Error</strong> whenever the final approval stage was executed.</p>
+                        <p>Power Automate only displayed "BadGateway," so the error wasn't obvious.</p>
+                        <p>Employees were stuck because the function controlled the final decision update.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>I had to:</p>
+                        <ul>
+                            <li>Find where the logic failed inside the Azure Function</li>
+                            <li>Check whether it was a data issue or function issue</li>
+                            <li>Fix it without breaking production requests</li>
+                            <li>Communicate clearly to the client team so they knew what to expect</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="rca-path">
+                    <h4>🔍 My RCA Path for Multi-System Failures:</h4>
+                    <ol>
+                        <li><strong>A. Power Automate → Run History</strong>
+                            <ul>
+                                <li>Expand HTTP action</li>
+                                <li>Saw: "502 BadGateway"</li>
+                                <li>No useful body → means issue is deeper</li>
+                            </ul>
+                        </li>
+                        <li><strong>B. Azure Portal → Function App → Monitor</strong>
+                            <ul>
+                                <li>Looked at invocation logs</li>
+                                <li>Found stack traces showing null reference inside one of the routing conditions</li>
+                            </ul>
+                        </li>
+                        <li><strong>C. Azure Application Insights</strong>
+                            <ul>
+                                <li>Filtered for failed requests</li>
+                                <li>Confirmed the null object was ManagerEmail</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 – Identify the Real Issue</h4>
+                        <p>The function assumed <strong>ManagerEmail always exists</strong>, but one department had recently changed their manager structure — some profiles didn't have the field populated yet.</p>
+                        <p>This created an incomplete payload to Graph API → Function crashed → PA showed "BadGateway."</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 – Fix</h4>
+                        <p>I collaborated with the cloud engineer:</p>
+                        
+                        <div class="code-snippet">
+if (string.IsNullOrEmpty(managerEmail)) {
+    ... route to default escalation ...
+}
+                        </div>
+                        
+                        <ul>
+                            <li>Added logging for missing fields</li>
+                            <li>Updated the routing rules to handle this exception</li>
+                        </ul>
+                        
+                        <p><strong>Back in Power Automate:</strong></p>
+                        <ul>
+                            <li>Modified the HTTP call to expect the new structured response</li>
+                            <li>Added a Condition: If FunctionStatus = "EscalatedDueToMissingData" → route differently</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 4 – Communicate with the Client</h4>
+                        <div class="quote-box">
+                            "The function assumed every employee record had a manager email, but HR hadn't completed all updates yet. I've added a safety net in the function and updated the flow so it handles these cases automatically."
+                        </div>
+                        <p>I kept them updated throughout using simple statuses:</p>
+                        <p><strong>'Found the issue' → 'Fixing now' → 'Testing' → 'Resolved'</strong></p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 5 – Prevent Recurrence</h4>
+                        <ul>
+                            <li>Added daily validation to check incomplete HR profiles</li>
+                            <li>Added a monitoring row in SP for all escalated cases</li>
+                            <li>Added proper try/catch with meaningful messages</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>The workflow became more stable and handled incomplete data gracefully</li>
+                        <li>No further 500 errors after the fix</li>
+                        <li>Client appreciated how I explained "backend crash" in simple words</li>
+                        <li>Improved success rate of final approval stage from <strong>93% → 99%</strong></li>
+                        <li>Built strong trust because I handled a sensitive failure calmly and professionally</li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Soft Skills Shown:</h4>
+                    <span class="keyword-tag">RCA method</span>
+                    <span class="keyword-tag">Structured investigation</span>
+                    <span class="keyword-tag">Collaboration</span>
+                    <span class="keyword-tag">Proactive prevention</span>
+                    <span class="keyword-tag">Effective communication</span>
+                    <span class="keyword-tag">Clear breakdown of complex concepts</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 3: PRESSURE, PRIORITIZATION, OWNERSHIP -->
+        <div class="category-section" id="cat3">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 3</h2>
+                <p>Pressure • Prioritization • Ownership</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #fff3cd 0%, #fff9e1 100%); padding: 30px; border-radius: 15px; margin-bottom: 35px; border-left: 6px solid #ffc107;">
+                <h3 style="color: #f57c00; font-size: 1.5em; margin-bottom: 20px;">📋 Questions This Category Covers:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Handle pressure
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Multiple priorities at once
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Taking ownership
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Managing incidents + BAU
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Handling urgent stakeholders
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Example:</strong> Conduent SR failures + BAU pressure + staying calm
+                </p>
+            </div>
+            
+            <!-- MASTER EXAMPLE 1 -->
+            <div class="master-example">
+                <div class="example-title">
+                    MASTER EXAMPLE 1: High-Volume SR Failures + BAU Pressure
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>Handling pressure • Juggling multiple issues • Taking ownership • Staying calm • Prioritizing work • Managing expectations</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>One evening in Conduent, around <strong>4:30 PM</strong>, our SR automation flow for the LRDS team started failing intermittently during the busiest window.</p>
+                        <p>Ops pinged saying "queue is building up, cases aren't routing correctly."</p>
+                        <p>At the same time:</p>
+                        <ul>
+                            <li>I had new BAU checks pending</li>
+                            <li>A CRM template change was deployed earlier that morning</li>
+                            <li>Two other flows had minor warnings</li>
+                        </ul>
+                        <p>This was a genuine pressure situation because SRs must be processed within the SLA window to avoid penalties.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>My responsibility was to:</p>
+                        <ul>
+                            <li>Keep the queue stable</li>
+                            <li>Find what was causing the intermittent routing failures</li>
+                            <li>Communicate clearly to ops</li>
+                            <li>Prevent escalation</li>
+                        </ul>
+                        <p>Essentially: <strong>stay calm, prioritize correctly, and handle it end-to-end</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 1 — Prioritization (Critical vs Non-Critical)</h4>
+                        <p>I divided the issues in 30 seconds:</p>
+                        
+                        <table class="priority-table">
+                            <tr>
+                                <th>Issue</th>
+                                <th>Priority</th>
+                                <th>Reason</th>
+                            </tr>
+                            <tr>
+                                <td>LRDS routing failure</td>
+                                <td>P1</td>
+                                <td>Direct SLA impact</td>
+                            </tr>
+                            <tr>
+                                <td>CRM warnings</td>
+                                <td>P2</td>
+                                <td>Non-breaking</td>
+                            </tr>
+                            <tr>
+                                <td>Other flow warnings</td>
+                                <td>P3</td>
+                                <td>No user impact</td>
+                            </tr>
+                        </table>
+                        
+                        <p>This helped me stay structured instead of panicking.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 — RCA Path for the P1 Failure</h4>
+                        <p>I followed my usual RCA checklist:</p>
+                        <ul>
+                            <li>Power Automate → Run History → Last 20 runs</li>
+                            <li>Failures only in Decision → Apply Routing Rules</li>
+                            <li>Expanded each failed run</li>
+                            <li>Checked: Trigger Inputs, CRM Record Data, Switch Condition</li>
+                        </ul>
+                        <p>Saw that <strong>"CaseCategory" field was suddenly null</strong> in some records</p>
+                        <p>Went to: <strong>CRM → Audit Logs → Case Entity</strong></p>
+                        <p>Confirmed CRM team ran a configuration update 2 hours earlier. New cases didn't get category stamped immediately.</p>
+                        <p>So the routing logic was failing because it couldn't classify the SR without the category.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 — Fix Under Pressure</h4>
+                        <p>Inside the flow:</p>
+                        <ul>
+                            <li>Added a pre-validation step</li>
+                            <li>"If CaseCategory is null → route to TemporaryValidationBucket"</li>
+                            <li>Added a quick log entry into SP: SR number, missing fields, timestamp, fallback route</li>
+                            <li>Re-ran the flow for the 7 failed SRs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 4 — Proactive Communication</h4>
+                        <div class="quote-box">
+                            "The case category field isn't being populated on some SRs after the CRM update. I've added a safety check so these SRs don't fail and they go to a temporary queue. No SR will breach SLA now."
+                        </div>
+                        <p>Kept them updated every 10 minutes.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 5 — Weekly Improvement</h4>
+                        <p>After pressure dropped, I worked with CRM:</p>
+                        <ul>
+                            <li>Added a mandatory field validation</li>
+                            <li>Added shared documentation</li>
+                            <li>Updated the routing logic to handle future nulls gracefully</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>Queue stabilized within <strong>12 minutes</strong></li>
+                        <li>No SR breached the SLA window that evening</li>
+                        <li>Ops appreciated the calm updates</li>
+                        <li>Routing failures dropped from <strong>11% → 0%</strong> after the fix</li>
+                        <li>Director called out the stability improvement in the weekly meeting</li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Soft Skills Demonstrated:</h4>
+                    <span class="keyword-tag">Calmness</span>
+                    <span class="keyword-tag">Prioritization</span>
+                    <span class="keyword-tag">Collaboration</span>
+                    <span class="keyword-tag">Ownership</span>
+                    <span class="keyword-tag">Communication</span>
+                    <span class="keyword-tag">Structured thinking</span>
+                </div>
+            </div>
+            
+            <!-- MASTER EXAMPLE 2 -->
+            <div class="master-example">
+                <div class="example-title">
+                    MASTER EXAMPLE 2: Parallel UAT Issues + Client Deadline
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>Pressure + deadlines • Handling simultaneous issues • Taking ownership • Coordinating with cloud engineer • Structured communication</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>During UAT for the freelance project, the client had a <strong>hard deadline</strong> where leadership wanted a demo of the end-to-end approval automation.</p>
+                        <p>Two things went wrong on the same day:</p>
+                        <ul>
+                            <li>Azure Function started returning <strong>429 (Too Many Requests)</strong></li>
+                            <li>Power Automate approvals were delayed in the "Manager Approval" step</li>
+                        </ul>
+                        <p>Both issues threatened the demo.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>My responsibility:</p>
+                        <ul>
+                            <li>Triage both issues</li>
+                            <li>Solve the production-critical one first</li>
+                            <li>Keep the client calm</li>
+                            <li>Prepare the system for a demo within the next <strong>24 hours</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 1 — Prioritization & Structuring</h4>
+                        <p>I classified issues:</p>
+                        <ul>
+                            <li><strong>Issue A – Azure Function 429</strong> → P1 (blocks core routing logic)</li>
+                            <li><strong>Issue B – Approval delays</strong> → P2 (annoying but not a blocker)</li>
+                        </ul>
+                        
+                        <div class="quote-box">
+                            "Let me stabilize the function first so routing stays reliable. Approvals can be optimized right after."
+                        </div>
+                        <p>This calmed them down because they saw a clear plan.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 — RCA for Azure Function 429</h4>
+                        <p>Followed my multi-system RCA method:</p>
+                        <ul>
+                            <li><strong>PA → Run History:</strong> HTTP connector showing "429 Too Many Requests"</li>
+                            <li><strong>Azure Portal → Function App → Metrics:</strong> High CPU spikes, Bursts during parallel requests</li>
+                            <li><strong>Function Code:</strong> Observed heavy synchronous Graph API calls</li>
+                            <li><strong>App Insights:</strong> Confirmed long-running execution (>3s)</li>
+                        </ul>
+                        
+                        <p><strong>Fix:</strong></p>
+                        <p>Worked with cloud engineer:</p>
+                        <ul>
+                            <li>Enabled Function Scaling to minimum 2 instances</li>
+                            <li>Converted 1 Graph API call to an async call</li>
+                            <li>Added simple throttling rule + retry-after header support</li>
+                        </ul>
+                        
+                        <p><strong>Inside PA:</strong></p>
+                        <ul>
+                            <li>Added retry policy on HTTP: 3 retries, 5 sec exponential backoff</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 — RCA for Approval Delays</h4>
+                        <p>Inside Power Automate:</p>
+                        <ul>
+                            <li>Found that certain managers were overloaded in approval stage</li>
+                            <li>Their Outlook throttled notifications</li>
+                        </ul>
+                        
+                        <p><strong>Fix:</strong></p>
+                        <ul>
+                            <li>Added Teams notification fallback</li>
+                            <li>Added reminder logic for pending approvals >2 hours</li>
+                            <li>Set a default escalation rule for demo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 4 — Communication & Ownership</h4>
+                        <p>Sent a structured update:</p>
+                        <div class="quote-box">
+                            "Routing is stabilized, function throttling fixed, retry logic added. Approvals now have a fallback and escalation. Your demo tomorrow will run without interruptions."
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>Function stabilized with zero 429s</li>
+                        <li>Approvals completed faster with fallback logic</li>
+                        <li>UAT demo went smooth</li>
+                        <li>Client appreciated the structured plan and said the calm handling built a lot of trust</li>
+                        <li>They extended the project by another <strong>3 weeks</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Soft Skills Shown:</h4>
+                    <span class="keyword-tag">Ownership</span>
+                    <span class="keyword-tag">Prioritization</span>
+                    <span class="keyword-tag">Calm communication</span>
+                    <span class="keyword-tag">Technical depth</span>
+                    <span class="keyword-tag">Collaboration</span>
+                    <span class="keyword-tag">Problem-solving</span>
+                    <span class="keyword-tag">Proactive thinking</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 4: LEARNING & ADAPTABILITY -->
+        <div class="category-section" id="cat4">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 4</h2>
+                <p>Learning • Adaptability • Feedback</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #fff3cd 0%, #fff9e1 100%); padding: 30px; border-radius: 15px; margin-bottom: 35px; border-left: 6px solid #ffc107;">
+                <h3 style="color: #f57c00; font-size: 1.5em; margin-bottom: 20px;">📋 Questions This Category Covers:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Learning new tool quickly
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Receiving constructive feedback
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Figured something out
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Personal development
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Recent achievement
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Example:</strong> Learning Azure Function/Graph API OR Learning governance/DLP at Conduent
+                </p>
+            </div>
+            
+            <!-- MASTER EXAMPLE 1 -->
+            <div class="master-example">
+                <div class="example-title">
+                    MASTER EXAMPLE 1: Learning Azure Function + Graph API Fast
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>"Learn something quickly" • "How do you approach learning new tech?" • "Recent achievement you're proud of"</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>When I took on the freelance approval automation project, the client wanted the routing logic handled in Azure Functions because the rules were too complex for Power Automate alone.</p>
+                        <p>I had used Azure before, but I'd never built a function that:</p>
+                        <ul>
+                            <li>Called Microsoft Graph</li>
+                            <li>Used managed identity</li>
+                            <li>Returned structured JSON to PA</li>
+                            <li>Followed enterprise-style error handling</li>
+                        </ul>
+                        <p>The timeline was tight, and I didn't want to deliver a half-baked solution.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>I had to:</p>
+                        <ul>
+                            <li>Learn Azure Function basics quickly</li>
+                            <li>Understand Graph endpoints for user/manager lookups</li>
+                            <li>Ensure identity & permissions were correct</li>
+                            <li>Integrate the function smoothly with Power Automate</li>
+                            <li>Keep the client updated while learning on the go</li>
+                        </ul>
+                        <p>I wanted to show that I could <strong>pick up new tech independently</strong> without compromising delivery.</p>
+                    </div>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 1 — Rapid Learning Approach</h4>
+                        <p>I took a practical, hands-on approach:</p>
+                        <ul>
+                            <li>Read Microsoft docs on Function Apps + Graph</li>
+                            <li>Practiced in Azure Sandbox for 2 hours daily</li>
+                            <li>Watched 2 short YouTube deep dives on managed identity</li>
+                            <li>Used Copilot in VS Code to generate basic C# samples</li>
+                            <li>Validated every change using Postman before wiring to PA</li>
+                        </ul>
+                        <p>This helped me learn faster than reading theoretical content.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 — Learning Identity/Governance the Right Way</h4>
+                        <p>I realized routing was failing because permissions were missing.</p>
+                        <p>So I learned:</p>
+                        <ul>
+                            <li>Application vs Delegated permissions</li>
+                            <li>How managed identity gets consent</li>
+                            <li>How to grant Graph scopes via Azure AD</li>
+                            <li>How connection references should be bound in PA</li>
+                        </ul>
+                        <p>I proactively asked the cloud engineer for a <strong>10-minute walkthrough</strong> of identity best practices so I don't repeat mistakes later.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 — Applying Feedback</h4>
+                        <p>The client said my first error responses were "too raw".</p>
+                        <p>So I:</p>
+                        <ul>
+                            <li>Wrapped everything in try/catch</li>
+                            <li>Added structured responses like:</li>
+                        </ul>
+                        
+                        <div class="code-snippet">
+{ 
+  "status": "InvalidDept", 
+  "message": "...", 
+  "code": 422 
+}
+                        </div>
+                        
+                        <ul>
+                            <li>Used consistent status codes</li>
+                            <li>Logged every failure to a separate SP list</li>
+                        </ul>
+                        <p>After feedback, the flow became much easier for them to test.</p>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>Delivered a fully working routing function in under a week</li>
+                        <li>Reduced PA routing errors by <strong>80%</strong> because logic was centralized</li>
+                        <li>Client said the error handling and documentation were "enterprise level"</li>
+                        <li>I now feel confident debugging Azure identity + Graph calls</li>
+                        <li>This learning curve directly strengthened how I build flows in Conduent</li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Soft Skills:</h4>
+                    <span class="keyword-tag">Initiative</span>
+                    <span class="keyword-tag">Adaptability</span>
+                    <span class="keyword-tag">Collaboration</span>
+                    <span class="keyword-tag">Ownership</span>
+                    <span class="keyword-tag">Growth mindset</span>
+                </div>
+            </div>
+            
+            <!-- MASTER EXAMPLE 2 -->
+            <div class="master-example">
+                <div class="example-title">
+                    MASTER EXAMPLE 2: Learning Governance + DLP + SA Rules
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>"Learn something new for work" • "How did you adapt to enterprise governance?" • "What feedback have you applied recently?"</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>When I joined Conduent, I had good Power Automate knowledge, but enterprise governance was completely new:</p>
+                        <ul>
+                            <li>DLP policies</li>
+                            <li>Solution-based development</li>
+                            <li>Service accounts</li>
+                            <li>Access trimming</li>
+                            <li>Connection reference approvals</li>
+                            <li>Environment rules</li>
+                        </ul>
+                        <p>During my first month, I accidentally created a test flow using my personal connection in Dev, and my lead told me this wasn't allowed in that environment.</p>
+                        <p>I took that feedback very seriously.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>I wanted to:</p>
+                        <ul>
+                            <li>Understand the entire governance model</li>
+                            <li>Avoid mistakes in Prod/UAT</li>
+                            <li>Become self-sufficient in PPAC</li>
+                            <li>Position myself as someone who understands "how enterprise automation actually works"</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 1 — Learning by Doing</h4>
+                        <p>I went through each PPAC section myself:</p>
+                        <ul>
+                            <li><strong>Environments → Roles:</strong> Understood Maker vs Admin vs System Customizer</li>
+                            <li><strong>DLP → Policies:</strong> Learned why external connectors were blocked</li>
+                            <li><strong>Solutions → Layers:</strong> Learned the difference between managed/unmanaged</li>
+                            <li><strong>Connections → Audits:</strong> Understood how expired connections break flows</li>
+                        </ul>
+                        
+                        <p>I paired with my lead for 30 minutes to understand the difference between:</p>
+                        <ul>
+                            <li>SA used for routing</li>
+                            <li>SA used for CRM access</li>
+                            <li>Personal connections in Dev only</li>
+                            <li>Why Prod must ALWAYS use SA</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 — Applying Feedback</h4>
+                        <p>My lead's feedback was:</p>
+                        <div class="quote-box">
+                            "Before building anything new, first check the environment boundaries."
+                        </div>
+                        
+                        <p>So I changed my approach:</p>
+                        <ul>
+                            <li>Always start by opening Solution Explorer, not the "My Flows" area</li>
+                            <li>Always check Connection References first before adding actions</li>
+                            <li>Always validate: "Can this connector even be used in this environment?"</li>
+                            <li>Document every permission requirement in Confluence</li>
+                            <li>Ask security instead of assuming something is allowed</li>
+                        </ul>
+                        <p>This helped me become much more proactive.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 — Practical Application</h4>
+                        <p>Used these learnings to improve one of our SR flows:</p>
+                        <ul>
+                            <li>Separated the flow into Try and Catch scopes</li>
+                            <li>Used solution-aware variables for clean promotion</li>
+                            <li>Replaced personal connectors with SA references</li>
+                            <li>Added missing DLP-friendly connectors for CRM</li>
+                            <li>Added environment variables for CRM URLs</li>
+                        </ul>
+                        <p>My understanding of governance started becoming very practical, not theoretical.</p>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>I stopped making environment boundary mistakes</li>
+                        <li>My lead explicitly said: "Your governance understanding is much stronger now"</li>
+                        <li>Our SR flow became cleaner, easier to promote, and more stable</li>
+                        <li>I became self-sufficient navigating PPAC and identity issues</li>
+                        <li>I now use this governance knowledge in every flow I build</li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Soft Skills:</h4>
+                    <span class="keyword-tag">Coachability</span>
+                    <span class="keyword-tag">Proactive learning</span>
+                    <span class="keyword-tag">Using feedback well</span>
+                    <span class="keyword-tag">Independent improvement</span>
+                    <span class="keyword-tag">Attention to detail</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 5: SCENARIO QUESTIONS -->
+        <div class="category-section" id="cat5">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 5</h2>
+                <p>Scenario / "What Would You Do If..."</p>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #fff3cd 0%, #fff9e1 100%); padding: 30px; border-radius: 15px; margin-bottom: 35px; border-left: 6px solid #ffc107;">
+                <h3 style="color: #f57c00; font-size: 1.5em; margin-bottom: 20px;">📋 Questions This Category Covers:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Flow failing in production
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Permissions issue blocking work
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Poorly documented flow inherited
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> Governance/DLP blocking
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 10px;">
+                        <strong style="color: #667eea;">✓</strong> All "How would you handle..." questions
+                    </div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Approach:</strong> Run history → investigate → communicate → fix → prevent
+                </p>
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #2196f3;">
+                    <p style="color: #1565c0; font-size: 1.05em; line-height: 1.8;">
+                        <strong>🎯 This is the thinking style Sam & Ali expect from an Automation Engineer:</strong> Structured, governance-first, communication-heavy, and prevention-focused.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- SCENARIO 1 -->
+            <div class="master-example">
+                <div class="example-title">
+                    SCENARIO 1: Flow Suddenly Starts Failing in Production
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>"What would you do if a flow starts failing in Prod?" • "How do you approach incidents?" • "What's your troubleshooting method?"</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>Let's say our Conduent SR Processing Flow starts failing at scale — multiple "Failed" runs appear in the run history, and SRs aren't updating in CRM.</p>
+                        <p>This affects real customer cases (crossings, LRDS submissions), so <strong>SLA impact is real</strong>.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>My responsibility is to react calmly and follow a structured RCA path:</p>
+                        <ul>
+                            <li>Contain the issue</li>
+                            <li>Minimize impact to Ops</li>
+                            <li>Diagnose the fault properly</li>
+                            <li>Keep stakeholders informed</li>
+                            <li>Fix → Validate → Prevent</li>
+                        </ul>
+                        <p>I don't panic or make blind changes — I follow the same structured approach every time.</p>
+                    </div>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 1 — Immediate Containment</h4>
+                        <p>Proactively communicate on Teams:</p>
+                        <div class="quote-box">
+                            "I've picked up the SR flow failures — starting RCA, will update every 10 minutes."
+                        </div>
+                        <p>This alone reduces stakeholder stress.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 — RCA Step 1: Run History Analysis</h4>
+                        <p>I open <strong>Power Automate → Solutions → SR Flow → Run History</strong>:</p>
+                        <ul>
+                            <li>Filter last 10 failed runs</li>
+                            <li>Open one failure → check Inputs / Outputs</li>
+                            <li>Check HTTP codes:
+                                <ul>
+                                    <li>403 = identity issue</li>
+                                    <li>429 = throttling</li>
+                                    <li>400 = bad payload</li>
+                                    <li>timeout = CRM delay</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>Most Prod failures reveal themselves at this step.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 — RCA Step 2: Check Connector Health</h4>
+                        <p>Navigate: <strong>PPAC → Environments → Connections</strong></p>
+                        <p>I check whether:</p>
+                        <ul>
+                            <li>The service account connection expired</li>
+                            <li>DLP recently changed</li>
+                            <li>CRM had a schema update (field removed/renamed)</li>
+                            <li>The connection reference is mismatched after deployment</li>
+                        </ul>
+                        <p>This is a proactive habit — I ALWAYS check connectors early.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 4 — RCA Step 3: Validate Downstream System</h4>
+                        <p>I check CRM Audit Logs:</p>
+                        <ul>
+                            <li>Any overnight maintenance?</li>
+                            <li>Any API throttling?</li>
+                            <li>Any new required field on the SR entity?</li>
+                        </ul>
+                        <p>If needed, I collaborate with the CRM admin:</p>
+                        <div class="quote-box">
+                            "Can you confirm if the SR table was updated today? My flow is failing on PATCH."
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 5 — Apply Fix</h4>
+                        <p>Depending on cause:</p>
+                        <ul>
+                            <li>Expired SA connection → reauthenticate</li>
+                            <li>CRM field update → update JSON body + solution layer</li>
+                            <li>Throttling → add delay + concurrency control</li>
+                            <li>Null fields → add pre-validation condition</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 6 — Controlled Testing</h4>
+                        <p>I always test in:</p>
+                        <ul>
+                            <li>Dev with sample SR</li>
+                            <li>Pre-Prod with real-structure SR</li>
+                            <li>Promote to Prod only after sign-off</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>Issue resolved within <strong>30 minutes</strong></li>
+                        <li>Missed-SLAs reduced for that shift</li>
+                        <li>Added pre-validation checks so the same failure doesn't happen again</li>
+                        <li>Documented RCA in Confluence</li>
+                        <li>Ops thanked me for clear communication / calm handling</li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Soft Skills Shown:</h4>
+                    <span class="keyword-tag">Structure</span>
+                    <span class="keyword-tag">Communication</span>
+                    <span class="keyword-tag">Composed behavior</span>
+                    <span class="keyword-tag">Collaboration</span>
+                    <span class="keyword-tag">Ownership</span>
+                    <span class="keyword-tag">Proactive prevention</span>
+                </div>
+            </div>
+            
+            <!-- SCENARIO 2 -->
+            <div class="master-example">
+                <div class="example-title">
+                    SCENARIO 2: You Inherit a Badly Documented, Unstable Flow
+                </div>
+                
+                <div class="use-for-box">
+                    <h4>🎯 Use This For:</h4>
+                    <p>"What would you do if you inherited a poorly built flow?" • "How would you improve stability?" • "How would you handle undocumented work?"</p>
+                </div>
+                
+                <div class="star-section">
+                    <div class="star-card">
+                        <h3><span class="emoji">🎯</span>Situation</h3>
+                        <p>Imagine I join a team and inherit a complex approval workflow where:</p>
+                        <ul>
+                            <li>No documentation</li>
+                            <li>No error handling</li>
+                            <li>No logging</li>
+                            <li>Unorganized actions</li>
+                            <li>Personal connections used</li>
+                            <li>Function calls hard-coded</li>
+                        </ul>
+                        <p>This is common in real orgs, and it's exactly what I dealt with in the freelance project before rebuilding it.</p>
+                    </div>
+                    
+                    <div class="star-card">
+                        <h3><span class="emoji">📌</span>Task</h3>
+                        <p>My aim:</p>
+                        <ul>
+                            <li>Stabilize the flow</li>
+                            <li>Understand logic without breaking anything</li>
+                            <li>Convert it to solution-aware structure</li>
+                            <li>Improve reliability step by step</li>
+                            <li>Keep stakeholders updated</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="star-card">
+                    <h3><span class="emoji">⚡</span>Action</h3>
+                    
+                    <div class="step-card">
+                        <h4>Step 1 — Structured Discovery (No Changes Yet)</h4>
+                        <p>I open the flow and:</p>
+                        <ul>
+                            <li>Turn on "Peek code" to see raw JSON for each action</li>
+                            <li>Review connection references</li>
+                            <li>Map triggers → branches → approvals → HTTP</li>
+                            <li>Identify missing pre-checks</li>
+                            <li>Compare outputs to SP list structure</li>
+                        </ul>
+                        <p>I do this quietly; I don't touch Prod on day one.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 2 — Build a Quick Diagram</h4>
+                        <p>I create a small diagram:</p>
+                        <ul>
+                            <li>Trigger</li>
+                            <li>Pre-checks</li>
+                            <li>Approvals</li>
+                            <li>Function calls</li>
+                            <li>Update stages</li>
+                            <li>Logging</li>
+                        </ul>
+                        <p>This lets me speak clearly with stakeholders.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 3 — Stabilize in Dev First</h4>
+                        <p>I copy flow → save into a sandbox solution.</p>
+                        <p>Fixes done in order:</p>
+                        <ul>
+                            <li>Introduce Scopes: Try / Catch</li>
+                            <li>Add error handling: catch HTTP failures, return friendly messages</li>
+                            <li>Replace personal connectors with SA</li>
+                            <li>Add concurrency control</li>
+                            <li>Add structured logging: SP "FlowExecutionLog"</li>
+                            <li>Add pre-validation checks: empty fields? missing attachments?</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-card">
+                        <h4>Step 4 — Communicate & Collaborate</h4>
+                        <div class="quote-box">
+                            "Here's what was unstable and why. Here's the stabilization plan. Here's what I need from identity/CRM teams."
+                        </div>
+                        <p>This shows maturity and calm ownership.</p>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <h3>✅ Result</h3>
+                    <ul>
+                        <li>Flow stability improved from intermittent failures to <strong>~100% reliability</strong></li>
+                        <li>Team finally understood the flow thanks to my diagram + explanation</li>
+                        <li>A proper logging layer was introduced</li>
+                        <li>Deployment now follows solution-based ALM</li>
+                        <li>Cloud engineer said: "Your refinements made it production-grade."</li>
+                    </ul>
+                </div>
+                
+                <div class="keywords-box">
+                    <h4>💡 Soft Skills:</h4>
+                    <span class="keyword-tag">Initiative</span>
+                    <span class="keyword-tag">Structured thinking</span>
+                    <span class="keyword-tag">Communication</span>
+                    <span class="keyword-tag">Documentation</span>
+                    <span class="keyword-tag">Collaboration</span>
+                    <span class="keyword-tag">Ownership</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="footer">
+            <h3>✅ Master Examples Guide Complete!</h3>
+            <p>All examples organized by category with full STAR breakdown, RCA paths, and soft skills keywords</p>
+        </div>
+        
+    </div>
+</body>
+</html>

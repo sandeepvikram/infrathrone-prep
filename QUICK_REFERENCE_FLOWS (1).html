@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Reference: Flows Abridged</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .flow-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 6px solid #667eea;
+        }
+        
+        .flow-title {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .key-info {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .tech-stack {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #1976d2;
+        }
+        
+        .quick-facts {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #f57c00;
+        }
+        
+        ul {
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .highlight {
+            background: #ffd700;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>⚡ Quick Reference: Flows Abridged</h1>
+            <p>Fast review for interview - Key facts only</p>
+        </div>
+        
+        <!-- Flow Comparison Table -->
+        <div class="section">
+            <h2 style="color: #667eea; font-size: 2em; margin-bottom: 20px;">📊 Flow Comparison at a Glance</h2>
+            
+            <table>
+                <tr>
+                    <th>Flow</th>
+                    <th>What It Does</th>
+                    <th>When</th>
+                    <th>Why Different</th>
+                </tr>
+                <tr>
+                    <td><strong>Flow 1: LRDS</strong></td>
+                    <td>Routes SRs to right back-office queue</td>
+                    <td>AFTER SR created in CRM</td>
+                    <td>General routing + logging</td>
+                </tr>
+                <tr>
+                    <td><strong>Flow 2: Payment/Penalty</strong></td>
+                    <td>Validates financial/penalty SRs</td>
+                    <td>AFTER SR created, filtered to payment types</td>
+                    <td>Specialized financial rules, stricter validation</td>
+                </tr>
+                <tr>
+                    <td><strong>Flow 3: Pre-Check (WIP)</strong></td>
+                    <td>Pre-validates SRs before they hit queues</td>
+                    <td>BEFORE SR goes live (front-door)</td>
+                    <td>YOUR innovation - catches bad SRs upfront</td>
+                </tr>
+                <tr>
+                    <td><strong>Flow 4: Freelance Approval</strong></td>
+                    <td>Routes exception approvals using Graph API</td>
+                    <td>When SP item created</td>
+                    <td>Azure Function + Graph + Managed Identity</td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Flow 1 -->
+        <div class="section">
+            <div class="flow-card" style="border-left-color: #51cf66;">
+                <div class="flow-title" style="color: #51cf66;">📋 Flow 1: LRDS Document Pre-Validation & Routing</div>
+                
+                <div class="key-info">
+                    <h4 style="color: #2c3e50;">💬 Interview Explanation:</h4>
+                    <p style="font-size: 1.1em; margin-top: 10px; line-height: 1.8;">
+                        <strong>Context:</strong> At Conduent, we were seeing about 20-25% of LRDS service requests coming through with missing or unreadable documents, which meant our back-office teams were wasting time chasing customers for the right paperwork.
+                        <br><br>
+                        <strong>What I Built:</strong> I designed this pre-validation flow that acts as a quality gate at the front door. When a customer uploads documents for an LRDS request—like their V5C or proof of address—the flow triggers automatically and checks if the mandatory documents are actually there and readable. Based on the validation, it either routes the SR straight to the LRDS back-office queue if everything's good, or sends an automated email back to the customer asking them to provide the correct files.
+                        <br><br>
+                        <strong>Impact:</strong> This stopped those incomplete SRs from even hitting the back-office queues, which saved the ops teams from having to manually follow up with customers. We basically filtered out the bad requests upfront rather than discovering problems later in the process.
+                    </p>
+                </div>
+                
+                <div class="quick-facts">
+                    <h4 style="color: #e65100;">⚡ Quick Facts:</h4>
+                    <ul>
+                        <li><span class="highlight">Scope:</span> Internal, AFTER SR created in CRM</li>
+                        <li><span class="highlight">Trigger:</span> When row added/modified in CRM (Dataverse connector)</li>
+                        <li><span class="highlight">Problem:</span> 20-25% of LRDS submissions had missing/wrong documents</li>
+                        <li><span class="highlight">Goal:</span> Filter out invalid SRs so back-office only works on correct cases</li>
+                        <li><span class="highlight">Innovation:</span> Better routing + safer logic (null checks, switch cases, SP logging)</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-stack">
+                    <h4 style="color: #1976d2;">🔧 Tech/Tools:</h4>
+                    <ul>
+                        <li>Power Automate (cloud flow)</li>
+                        <li>CRM/Dataverse connector (trigger + update)</li>
+                        <li>SharePoint list (logging)</li>
+                        <li>AI Builder (light usage - document classification)</li>
+                        <li>Teams/Outlook (notifications)</li>
+                        <li>Service Account (identity)</li>
+                    </ul>
+                </div>
+                
+                <div class="key-info">
+                    <h4 style="color: #2c3e50;">📝 Flow Steps (Abridged):</h4>
+                    <ol style="margin-top: 10px;">
+                        <li><strong>Trigger:</strong> CRM row created/modified (LRDS SR type only)</li>
+                        <li><strong>Fetch attachments:</strong> Get V5C and proof-of-address files</li>
+                        <li><strong>AI classify:</strong> Check if doc types match expected (optional step)</li>
+                        <li><strong>Validate:</strong> Check postcode in Dartford/Thurrock, VRM matches, both docs present</li>
+                        <li><strong>Route:</strong> Valid → LRDS Queue | Invalid → Send email to customer asking for correct docs</li>
+                        <li><strong>Log:</strong> Write decision to SharePoint RoutingLog (SR ID, route, reason, timestamp)</li>
+                        <li><strong>Notify:</strong> Teams message to ops if issues detected</li>
+                    </ol>
+                </div>
+                
+                <div class="quick-facts">
+                    <h4 style="color: #e65100;">💬 Interview One-Liner:</h4>
+                    <p style="font-style: italic; margin-top: 10px;">"Flow 1 validates LRDS document submissions, checks if the right docs are attached and readable, routes valid cases to back-office, and auto-emails customers for missing docs. It reduced agent effort by filtering out 20-25% of invalid submissions."</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flow 2 -->
+        <div class="section">
+            <div class="flow-card" style="border-left-color: #ff6b6b;">
+                <div class="flow-title" style="color: #ff6b6b;">💳 Flow 2: Payment/Penalty Pre-Validation & Routing</div>
+                
+                <div class="key-info">
+                    <h4 style="color: #2c3e50;">💬 Interview Explanation:</h4>
+                    <p style="font-size: 1.1em; margin-top: 10px; line-height: 1.8;">
+                        <strong>Context:</strong> Payment and penalty service requests have stricter requirements than regular LRDS cases because they involve financial transactions and tight SLAs. We couldn't afford to have ops teams working with incomplete financial data—things like missing vehicle registration numbers or invalid tariff amounts.
+                        <br><br>
+                        <strong>What I Built:</strong> This flow specifically handles payment and penalty SRs with enhanced validation rules. When one of these SRs is created in the CRM, the flow triggers and validates all critical financial fields—the vehicle registration mark, crossing date, tariff amount, and outstanding balance. If any field is missing or doesn't make sense, like a negative balance or blank VRM, it flags the SR as incomplete and routes it to a manual review queue. If all validations pass, it automatically routes to the appropriate payment operations queue.
+                        <br><br>
+                        <strong>Impact:</strong> This reduced manual rework by around 30% because we caught data quality issues immediately instead of ops teams discovering them mid-process. It also helped us maintain our SLAs because valid cases could flow straight through without delays.
+                    </p>
+                </div>
+                
+                <div class="quick-facts">
+                    <h4 style="color: #e65100;">⚡ Quick Facts:</h4>
+                    <ul>
+                        <li><span class="highlight">Scope:</span> Internal, ONLY payment/penalty related SRs</li>
+                        <li><span class="highlight">Trigger:</span> CRM row created (SR type = Payment Failure / Penalty Dispute)</li>
+                        <li><span class="highlight">Problem:</span> Payment SRs had repetitive issues (expired card, invalid CVV, missing transaction ID)</li>
+                        <li><span class="highlight">Goal:</span> Pre-classify payment/penalty SRs so agents only work on genuine disputes</li>
+                        <li><span class="highlight">Difference vs Flow 1:</span> Specialized financial/penalty rules, stricter validation, different queues</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-stack">
+                    <h4 style="color: #1976d2;">🔧 Tech/Tools:</h4>
+                    <ul>
+                        <li>Power Automate (cloud flow)</li>
+                        <li>CRM/Dataverse connector (trigger + update + get rows)</li>
+                        <li>SharePoint list (logging)</li>
+                        <li>AI Builder (optional text classification on customer notes)</li>
+                        <li>Teams (internal notifications)</li>
+                        <li>Service Account (identity)</li>
+                    </ul>
+                </div>
+                
+                <div class="key-info">
+                    <h4 style="color: #2c3e50;">📝 Flow Steps (Abridged):</h4>
+                    <ol style="margin-top: 10px;">
+                        <li><strong>Trigger:</strong> CRM row created (payment/penalty SR types only)</li>
+                        <li><strong>Validate critical fields:</strong> Plate number, crossing date, tariff, balance present and not null</li>
+                        <li><strong>Check payment status:</strong> Compare crossing date vs payment timestamp</li>
+                        <li><strong>Classify:</strong> Extract reason codes (expired card, insufficient funds, invalid CVV)</li>
+                        <li><strong>Route:</strong> Complete data → Payment Ops Queue | Missing data → Manual Review Queue</li>
+                        <li><strong>Log:</strong> Write to SharePoint log (SR ID, classification, route, timestamp)</li>
+                        <li><strong>Notify:</strong> Teams notification for escalations</li>
+                    </ol>
+                </div>
+                
+                <div class="quick-facts">
+                    <h4 style="color: #e65100;">💬 Interview One-Liner:</h4>
+                    <p style="font-style: italic; margin-top: 10px;">"Flow 2 validates payment and penalty SRs by checking financial fields like plate number, crossing date, and balance. It routes complete cases to payment ops and flags incomplete ones for manual review, reducing back-office rework."</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flow 3 -->
+        <div class="section">
+            <div class="flow-card" style="border-left-color: #a29bfe;">
+                <div class="flow-title" style="color: #6c5ce7;">🔧 Flow 3: Customer Self-Service Pre-Check (WIP)</div>
+                
+                <div style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 5px solid #e17055;">
+                    <h4 style="color: #d63031; font-size: 1.3em; margin-bottom: 10px;">⚠️ THIS IS YOUR INNOVATION STORY</h4>
+                    <p style="color: #2c3e50; font-weight: 600;">This is WIP (Work in Progress) - you proposed it, validated with team, built early modules. NOT fully live in production.</p>
+                </div>
+                
+                <div class="key-info">
+                    <h4 style="color: #2c3e50;">💬 Interview Explanation:</h4>
+                    <p style="font-size: 1.1em; margin-top: 10px; line-height: 1.8;">
+                        <strong>Context:</strong> After working with the document validation and payment SR validation flows, I realized we were catching problems too late in the process. SRs were already created in the system, documents were already uploaded, and then we'd discover issues. I saw an opportunity to catch these problems even earlier—right at the submission point before anything hits our back-office queues.
+                        <br><br>
+                        <strong>What I Built:</strong> I proposed this comprehensive pre-check flow that acts as a unified validation gate before SRs enter the system. When a customer submits through the self-service portal, this flow triggers first and runs a complete validation suite: it checks if mandatory documents like V5C and proof-of-address are attached, validates that key fields like VRM, postcode, and customer email are populated, and even verifies LRDS eligibility by confirming the postcode is in the Dartford or Thurrock catchment area. Based on these checks, it intelligently routes the SR down one of three paths: if everything's complete and valid, it marks the SR as 'ReadyForProcessing' and passes it to the specialized flows. If documents or fields are missing, it immediately sends an automated email to the customer with specific instructions on what's needed. If the request isn't eligible at all, it routes to a dedicated 'Incomplete SR' queue for manual triage.
+                        <br><br>
+                        <strong>Impact:</strong> This became the refined approach that consolidated our validation logic into a single entry point. Instead of having separate flows catch different types of errors at different stages, we now stop incomplete requests at the front door. This significantly improved our first-time-right submission rate and meant the downstream validation flows only had to handle edge cases rather than basic data quality issues.
+                    </p>
+                </div>
+                
+                <div class="quick-facts">
+                    <h4 style="color: #e65100;">⚡ Quick Facts:</h4>
+                    <ul>
+                        <li><span class="highlight">Scope:</span> At the FRONT, BEFORE SR hits main queues (NOT after like Flow 1 & 2)</li>
+                        <li><span class="highlight">Trigger:</span> When new SR created in certain categories OR customer submits form</li>
+                        <li><span class="highlight">Problem:</span> 30-40% of SRs had incomplete data, forcing back-office to chase customers</li>
+                        <li><span class="highlight">Goal:</span> Catch bad SRs upfront and either fix automatically or route to special bucket</li>
+                        <li><span class="highlight">YOUR Innovation:</span> "Before, ops dealt with bad SRs AFTER they landed. Now, we catch upfront."</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-stack">
+                    <h4 style="color: #1976d2;">🔧 Tech/Tools (PoC Modules):</h4>
+                    <ul>
+                        <li>Power Automate (cloud flow)</li>
+                        <li>CRM/Dataverse connector (trigger + update)</li>
+                        <li>SharePoint list (logging + config)</li>
+                        <li>AI Builder (document classification - optional)</li>
+                        <li>Outlook (auto-email to customer)</li>
+                        <li>Service Account (identity)</li>
+                    </ul>
+                </div>
+                
+                <div class="key-info">
+                    <h4 style="color: #2c3e50;">📝 Flow Steps (PoC - Abridged):</h4>
+                    <ol style="margin-top: 10px;">
+                        <li><strong>Trigger:</strong> SR created in certain categories (LRDS, Payment, General)</li>
+                        <li><strong>Check doc type:</strong> Is V5C attached? Is proof-of-address attached?</li>
+                        <li><strong>Validate mandatory fields:</strong> VRM, postcode, customer email present?</li>
+                        <li><strong>LRDS eligibility check:</strong> Postcode in Dartford/Thurrock?</li>
+                        <li><strong>AI Builder (optional):</strong> Classify document type if filename unclear</li>
+                        <li><strong>Route decision:</strong>
+                            <ul>
+                                <li>All checks pass → Mark SR as "ReadyForProcessing"</li>
+                                <li>Missing info → Send auto-email to customer asking for docs</li>
+                                <li>Not eligible → Route to "Incomplete SR" queue</li>
+                            </ul>
+                        </li>
+                        <li><strong>Log:</strong> Write decision to SharePoint pre-check log</li>
+                    </ol>
+                </div>
+                
+                <div class="quick-facts">
+                    <h4 style="color: #e65100;">💬 Interview One-Liner:</h4>
+                    <p style="font-style: italic; margin-top: 10px;">"Flow 3 is a front-door pre-validation layer I proposed. It checks SRs BEFORE they hit queues, validates doc types and mandatory fields, and either marks them ready or auto-emails customers for missing info. This reduces ops time wasted on incomplete cases by catching problems upfront."</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flow 4 -->
+        <div class="section">
+            <div class="flow-card" style="border-left-color: #00b894;">
+                <div class="flow-title" style="color: #00b894;">☁️ Flow 4: Freelance Exception Approval Automation</div>
+                
+                <div class="key-info">
+                    <h4 style="color: #2c3e50;">💬 Interview Explanation:</h4>
+                    <p style="font-size: 1.1em; margin-top: 10px; line-height: 1.8;">
+                        <strong>Context:</strong> This was a freelance project where the client had a major process problem—people were emailing random managers for exception approvals with no clear process, no tracking, and no one knew who was supposed to approve what. It was creating bottlenecks and confusion.
+                        <br><br>
+                        <strong>What I Built:</strong> I designed a Power Automate flow that triggers when someone submits an exception request to a SharePoint list. Instead of using built-in Power Automate approvals, I integrated with an Azure Function that handles the complex routing logic. The Function calls Microsoft Graph API to look up manager hierarchies, department information, and applies business rules to determine the correct approver based on request value, department, and urgency. The Function returns the approver's details back to Power Automate, which then sends a structured approval request via email or Teams. Once the approver responds, the flow updates the SharePoint list with the decision and notifies the requester. The whole infrastructure was provisioned using Terraform for repeatability. I designed the Power Automate flow and the integration contract between PA and the Azure Function, while a senior engineer handled the Terraform provisioning and the core Function structure.
+                        <br><br>
+                        <strong>Impact:</strong> This replaced the chaotic email-based process with a structured, trackable approval workflow. It also demonstrated I could integrate Power Automate with Azure services and work with APIs beyond the standard connectors when business logic gets complex.
+                    </p>
+                </div>
+                
+                <div class="quick-facts">
+                    <h4 style="color: #e65100;">⚡ Quick Facts:</h4>
+                    <ul>
+                        <li><span class="highlight">Business Problem:</span> People emailed random managers, no one knew who approves what, no tracking</li>
+                        <li><span class="highlight">Trigger:</span> SharePoint item created (ExceptionApprovals list)</li>
+                        <li><span class="highlight">Goal:</span> Automated approval routing using identity data from Azure AD</li>
+                        <li><span class="highlight">Architecture:</span> PA orchestrates, Azure Function handles routing logic, Graph API provides identity data</li>
+                        <li><span class="highlight">Your Role:</span> PA flow design, integration contract, routing requirements (senior engineer did Terraform + Function structure)</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-stack">
+                    <h4 style="color: #1976d2;">🔧 Tech/Tools:</h4>
+                    <ul>
+                        <li><strong>Power Automate:</strong> Orchestration, approvals, SP updates</li>
+                        <li><strong>SharePoint:</strong> ExceptionApprovals list, logging list</li>
+                        <li><strong>Azure Function:</strong> C# (.NET 6), HTTP trigger, routing logic</li>
+                        <li><strong>Microsoft Graph API:</strong> Get manager, department, groups from Azure AD</li>
+                        <li><strong>Managed Identity:</strong> Function authenticates to Graph (no passwords)</li>
+                        <li><strong>Terraform:</strong> Provisioned Resource Group, Storage, Function App, App Insights</li>
+                        <li><strong>Power BI:</strong> SLA tracking dashboard</li>
+                        <li><strong>PowerShell + Graph:</strong> Bulk sync jobs (separate from main flow)</li>
+                    </ul>
+                </div>
+                
+                <div class="key-info">
+                    <h4 style="color: #2c3e50;">📝 Flow Steps (Abridged):</h4>
+                    <ol style="margin-top: 10px;">
+                        <li><strong>Trigger:</strong> SharePoint item created (Status = "New")</li>
+                        <li><strong>Initialize variables:</strong> RequestID, Type, Amount, RiskLevel, SLADeadline</li>
+                        <li><strong>Call Azure Function (HTTP):</strong> Send JSON with RequestID, RequestorEmail, Type, Amount</li>
+                        <li><strong>Function logic:</strong>
+                            <ul>
+                                <li>Authenticate to Graph via Managed Identity</li>
+                                <li>Get requestor's manager, department from Azure AD</li>
+                                <li>Apply business rules (discount < £5k → Manager, £5k-£15k → Finance, > £15k → Director)</li>
+                                <li>Return JSON: primaryApprover, backupApprover, requiredLevel</li>
+                            </ul>
+                        </li>
+                        <li><strong>PA reads response:</strong> If statusCode 200 → create approval, route to approver | If not 200 → log error, notify admin</li>
+                        <li><strong>Approval outcome:</strong> Update SP with Approved/Rejected, record date/time/comments</li>
+                        <li><strong>Log:</strong> Write to SP log list</li>
+                    </ol>
+                </div>
+                
+                <div class="quick-facts">
+                    <h4 style="color: #e65100;">💬 Key Interview Points:</h4>
+                    <ul style="margin-top: 10px;">
+                        <li><strong>Why C#?</strong> "Microsoft Graph SDK for .NET, strong typing, enterprise standard for production Azure Functions"</li>
+                        <li><strong>Why Azure Function instead of PA?</strong> "Routing logic too complex for PA (nested conditions), Function handles it cleanly with proper if/else, logging, and can be reused by multiple flows"</li>
+                        <li><strong>How PA + Function integrate?</strong> "PA sends JSON via HTTP, Function returns statusCode + JSON response, PA checks 200 = success or not 200 = error"</li>
+                        <li><strong>Why not Graph directly in PA?</strong> "Enterprise DLP often blocks Graph connector, Function (internal + trusted) always allowed and can call Graph with higher permissions"</li>
+                    </ul>
+                </div>
+                
+                <div class="quick-facts">
+                    <h4 style="color: #e65100;">💬 Interview One-Liner:</h4>
+                    <p style="font-style: italic; margin-top: 10px;">"Flow 4 automates exception approvals by using Azure Function to query Microsoft Graph for manager and department info, applying business routing rules, and returning the correct approver to Power Automate. PA sends the approval and tracks the result in SharePoint. I designed the PA flow and integration contract; a senior engineer handled the Terraform and Function structure."</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Why Azure Function Section -->
+        <div class="section">
+            <h2 style="color: #667eea; font-size: 2em; margin-bottom: 20px;">💡 Why Azure Function Instead of Just Graph API?</h2>
+            
+            <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #f57c00;">
+                <h3 style="color: #e65100; margin-bottom: 15px;">🎯 Core Answer (Memorize This):</h3>
+                <p style="font-size: 1.1em; line-height: 1.8;"><strong>Graph = "Here is data from Azure AD"</strong></p>
+                <p style="font-size: 1.1em; line-height: 1.8;"><strong>Azure Function = "Here is the decision logic"</strong></p>
+                <p style="margin-top: 15px;">Graph only gives raw identity data (manager, department, groups). It does NOT decide who should approve, when to escalate, or what business rules apply.</p>
+            </div>
+            
+            <h3 style="color: #2c3e50; margin: 20px 0;">7 Reasons (Quick Version):</h3>
+            
+            <table>
+                <tr>
+                    <th style="width: 30%;">Reason</th>
+                    <th>Explanation</th>
+                </tr>
+                <tr>
+                    <td><strong>1. Graph = Identity Only</strong></td>
+                    <td>Gives manager/department, but NOT who approves, when to escalate, business rules</td>
+                </tr>
+                <tr>
+                    <td><strong>2. PA Can't Handle Complex</strong></td>
+                    <td>Nested conditions become messy, hard to maintain, brittle</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Full Control</strong></td>
+                    <td>Proper if/else rules, query APIs, apply exceptions, add logging</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Fast + Light</strong></td>
+                    <td>PA slows with many conditions; Function handles instantly</td>
+                </tr>
+                <tr>
+                    <td><strong>5. Scalable Security</strong></td>
+                    <td>Function can validate JWT, use Key Vault, retry logic, App Insights</td>
+                </tr>
+                <tr>
+                    <td><strong>6. Reduces DLP Blocks</strong></td>
+                    <td>Graph connector often blocked by DLP; Function (internal) always allowed</td>
+                </tr>
+                <tr>
+                    <td><strong>7. Centralized Logic</strong></td>
+                    <td>1 Function for all flows; update once, applies everywhere</td>
+                </tr>
+            </table>
+            
+            <div style="background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%); padding: 25px; border-radius: 12px; margin: 25px 0; color: white;">
+                <h3 style="font-size: 1.4em; margin-bottom: 15px;">🎯 Final Interview Sentence:</h3>
+                <p style="line-height: 1.8; font-size: 1.1em;">"Graph gave us the raw identity data, but the routing logic itself — especially exceptions, escalation rules, group checks, discount thresholds, and fallback paths — was too complex to maintain inside Power Automate. So we pushed the business logic into an Azure Function, which let us write proper branching, add logging, use managed identity securely, and keep the flow clean. Power Automate only handled the orchestration; the Function did the decision-making."</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%); padding: 30px; border-radius: 15px; margin: 30px 0; color: white; text-align: center;">
+            <h2 style="font-size: 2em; margin-bottom: 15px;">✅ Quick Reference Complete!</h2>
+            <p style="font-size: 1.2em;">Review these abridged flows before your interview for fast recall.</p>
+            <p style="margin-top: 15px; font-size: 1.1em;">For detailed behavioral questions and full explanations, see the COMPLETE_INTERVIEW_GUIDE.html</p>
+        </div>
+    </div>
+</body>
+</html>
