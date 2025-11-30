@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Behavioral Questions + Universal Answer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .header {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .header h1 { color: #667eea; font-size: 3em; margin-bottom: 15px; }
+        
+        /* UNIVERSAL ANSWER SECTION */
+        .universal-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            padding: 60px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 70px rgba(238, 90, 111, 0.5);
+            border: 4px solid #c92a2a;
+        }
+        .universal-section h2 {
+            color: white;
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .universal-section .subtitle {
+            color: white;
+            text-align: center;
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+        
+        .step-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+        }
+        .step-box h3 {
+            color: #c92a2a;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+        .quote-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #2196f3;
+            font-style: italic;
+            color: #1565c0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        .why-works {
+            color: #666;
+            font-style: italic;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        
+        .failure-type {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+        }
+        .failure-type h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        .failure-type ul {
+            padding-left: 25px;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+        .failure-type p {
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .final-statement {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px solid #f39c12;
+        }
+        .final-statement h3 {
+            color: #d35400;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .final-statement .closing-line {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 6px solid #f39c12;
+        }
+        .final-statement .closing-line p {
+            color: #2c3e50;
+            font-size: 1.3em;
+            line-height: 1.9;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        /* CATEGORY SECTION */
+        .category-section {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .category-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            color: white;
+            text-align: center;
+        }
+        .category-header h2 { font-size: 2.5em; margin-bottom: 10px; }
+        
+        .questions-covered {
+            background: linear-gradient(135deg, #fff3cd 0%, #fff9e1 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            border-left: 6px solid #ffc107;
+        }
+        .questions-covered h3 {
+            color: #f57c00;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .q-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .q-grid div {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .example-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            border-left: 8px solid #667eea;
+        }
+        .example-title {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        
+        .nav-menu {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        .nav-menu h3 { color: #667eea; margin-bottom: 15px; font-size: 1.4em; }
+        .nav-menu a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            margin: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        .nav-menu a:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <h1>🎯 20 Behavioral Questions</h1>
+            <p style="font-size: 1.3em; color: #666;">Complete Guide with Universal Error-Handling Answer</p>
+        </div>
+        
+        <div class="nav-menu">
+            <h3>📑 Quick Navigation</h3>
+            <a href="#universal">Universal Answer</a>
+            <a href="#cat1">Category 1</a>
+            <a href="#cat2">Category 2</a>
+            <a href="#cat3">Category 3</a>
+            <a href="#cat4">Category 4</a>
+            <a href="#cat5">Category 5</a>
+        </div>
+        
+        <!-- UNIVERSAL ERROR-HANDLING ANSWER -->
+        <div class="universal-section" id="universal">
+            <h2>🔥 UNIVERSAL ERROR-HANDLING ANSWER</h2>
+            <p class="subtitle"><strong>MEMORIZE THIS — It will save you in 10+ different questions!</strong></p>
+            
+            <div class="step-box">
+                <h3>⭐ Opening Statement (Use This First):</h3>
+                <div class="quote-box">
+                    "Whenever something breaks, the first thing I do is stay calm and go step by step. Automations fail for many reasons, so I don't jump to conclusions."
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h3>Step 1 — Confirm the Symptoms</h3>
+                <div class="quote-box">
+                    "I start by looking at the Power Automate run history to understand:<br>
+                    • where exactly it failed,<br>
+                    • what the error code/message is,<br>
+                    • what inputs and outputs were at that step."
+                </div>
+                <p class="why-works"><strong>Why this works:</strong> Shows structured thinking</p>
+            </div>
+            
+            <div class="step-box">
+                <h3>Step 2 — Identify the Pattern</h3>
+                <div class="quote-box">
+                    "I check:<br>
+                    • is it one item failing?<br>
+                    • or are multiple runs failing?<br>
+                    • did it begin after a certain time?<br>
+                    • did any schema or permission change happen recently?"
+                </div>
+                <p class="why-works"><strong>Why this works:</strong> Shows maturity</p>
+            </div>
+            
+            <div class="step-box">
+                <h3>Step 3 — Isolate the Likely Cause</h3>
+                <p style="color: #2c3e50; font-size: 1.1em; margin-bottom: 20px;">
+                    "I've learned there are a few common failure points across both my Conduent flows and my freelance Azure flows:"
+                </p>
+                
+                <div class="failure-type">
+                    <h4>🔹 1. Connector Identity Issues</h4>
+                    <ul>
+                        <li>Expired service account authentication</li>
+                        <li>Managed identity token expiration</li>
+                        <li>Wrong permission after schema changes</li>
+                        <li>Revoked API rights</li>
+                    </ul>
+                    <p>(403 / 401 errors)</p>
+                </div>
+                
+                <div class="failure-type">
+                    <h4>🔹 2. External System Issues</h4>
+                    <ul>
+                        <li>CRM schema updated</li>
+                        <li>Field renamed/deleted</li>
+                        <li>Data type mismatch</li>
+                        <li>Record locked</li>
+                    </ul>
+                    <p>(I saw this once in Conduent when a CRM field changed and parse JSON failed)</p>
+                </div>
+                
+                <div class="failure-type">
+                    <h4>🔹 3. Azure Function Issues (Freelance)</h4>
+                    <ul>
+                        <li>Throttling (429)</li>
+                        <li>Long-running execution</li>
+                        <li>App service scaling too low</li>
+                    </ul>
+                    <p>(I worked with the cloud engineer to fix this in freelance)</p>
+                </div>
+                
+                <div class="failure-type">
+                    <h4>🔹 4. Flow Logic Issues</h4>
+                    <ul>
+                        <li>Condition evaluating to null</li>
+                        <li>Missing expected dynamic content</li>
+                        <li>Apply-to-each running unexpectedly</li>
+                        <li>Wrong variable initialization</li>
+                    </ul>
+                    <p>(I've hit this during testing multiple times)</p>
+                </div>
+                
+                <div class="failure-type">
+                    <h4>🔹 5. Data Quality Issues</h4>
+                    <ul>
+                        <li>Unexpected blanks</li>
+                        <li>Wrong file formats</li>
+                        <li>Incorrect inputs from user or CRM</li>
+                    </ul>
+                </div>
+                
+                <p style="color: #2e7d32; font-style: italic; margin-top: 20px; font-size: 1.1em; background: #e8f5e9; padding: 15px; border-radius: 8px;">
+                    <strong>✅ This shows them you know the real landscape of failures</strong>
+                </p>
+            </div>
+            
+            <div class="step-box">
+                <h3>Step 4 — Run RCA (Root Cause Analysis)</h3>
+                <div class="quote-box">
+                    "Once I narrow it down, I go deeper:<br>
+                    • check inputs/outputs<br>
+                    • test the failing step manually<br>
+                    • test connector authentication<br>
+                    • check Azure logs (if external call)<br>
+                    • check CRM change logs<br>
+                    • check DLP restrictions<br>
+                    • check environment variable values<br>
+                    • test with a smaller dataset"
+                </div>
+                <p class="why-works"><strong>Why this works:</strong> This is proper RCA</p>
+            </div>
+            
+            <div class="step-box">
+                <h3>Step 5 — Fix, Validate, and Retest</h3>
+                <div class="quote-box">
+                    "After finding the root cause, I fix the issue and then retest the flow end-to-end with:<br>
+                    • the original failing item<br>
+                    • two or three additional edge cases<br>
+                    • a fresh new item to confirm it wasn't accidental"
+                </div>
+                <p class="why-works"><strong>Why this works:</strong> Shows completeness</p>
+            </div>
+            
+            <div class="step-box">
+                <h3>Step 6 — Communicate Clearly</h3>
+                <div class="quote-box">
+                    "I update the stakeholder or team with:<br>
+                    • what happened<br>
+                    • why it happened<br>
+                    • what I fixed<br>
+                    • and what the risk is of it happening again."
+                </div>
+                <p style="color: #2e7d32; font-style: italic; margin-top: 15px; font-size: 1.1em; background: #e8f5e9; padding: 12px; border-radius: 8px;">
+                    <strong>✅ SPW LOVES THIS</strong>
+                </p>
+            </div>
+            
+            <div class="step-box">
+                <h3>Step 7 — Add Prevention</h3>
+                <div class="quote-box">
+                    "To avoid repeat failures, I add one of the following depending on the cause:<br>
+                    • retry policies<br>
+                    • better null checks<br>
+                    • schema validation<br>
+                    • strengthening conditions<br>
+                    • updated documentation<br>
+                    • improved logging in SharePoint<br>
+                    • stronger SA permissions<br>
+                    • warnings for upcoming expiry (connections)"
+                </div>
+                <p class="why-works"><strong>Why this works:</strong> Shows maturity + future-proofing</p>
+            </div>
+            
+            <div class="final-statement">
+                <h3>🔥 FINAL CLOSING SENTENCE</h3>
+                <p style="text-align: center; color: #2c3e50; font-size: 1.05em; margin-bottom: 15px; font-weight: 600;">Use this exact line in the interview:</p>
+                <div class="closing-line">
+                    <p>"I don't panic. I go methodically — isolate the failing step, check identity issues, check schema changes, check external systems, fix it, test properly, communicate clearly, and make sure it doesn't happen again."</p>
+                </div>
+                <p style="text-align: center; color: #2e7d32; margin-top: 25px; font-size: 1.15em; background: white; padding: 20px; border-radius: 10px;">
+                    <strong>✅ This sounds calm, experienced, team-oriented, and governance-aware</strong><br>
+                    <span style="color: #666; font-size: 0.95em;">Exactly what Ali, Sam and Laura want to hear!</span>
+                </p>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 1 -->
+        <div class="category-section" id="cat1">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 1</h2>
+                <p>Communication & Handling People</p>
+            </div>
+            
+            <div class="questions-covered">
+                <h3>📋 Questions This Category Covers:</h3>
+                <div class="q-grid">
+                    <div><strong style="color: #667eea;">✓</strong> Explain technical to non-technical</div>
+                    <div><strong style="color: #667eea;">✓</strong> Work with ops/service team</div>
+                    <div><strong style="color: #667eea;">✓</strong> Unhappy stakeholder</div>
+                    <div><strong style="color: #667eea;">✓</strong> Collaborate across teams</div>
+                    <div><strong style="color: #667eea;">✓</strong> Give updates during issue</div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Example:</strong> Conduent flow failure → explaining to ops/client
+                </p>
+            </div>
+            
+            <div class="example-card">
+                <div class="example-title">Use the Communication Examples from Master Guide</div>
+                <p style="color: #2c3e50; font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                    For all questions in this category, refer to:<br><br>
+                    <strong>• Master Example 1:</strong> SR Flow Failure (CRM Connector Issue)<br>
+                    <strong>• Master Example 2:</strong> Azure Function 403 Failure<br><br>
+                    Both show excellent communication, stakeholder management, and clear explanations to non-technical teams.
+                </p>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 2 -->
+        <div class="category-section" id="cat2">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 2</h2>
+                <p>Problem-Solving & Root-Cause Analysis</p>
+            </div>
+            
+            <div class="questions-covered">
+                <h3>📋 Questions This Category Covers:</h3>
+                <div class="q-grid">
+                    <div><strong style="color: #667eea;">✓</strong> Something you built failed</div>
+                    <div><strong style="color: #667eea;">✓</strong> Solve problem without full info</div>
+                    <div><strong style="color: #667eea;">✓</strong> Prevent recurring issue</div>
+                    <div><strong style="color: #667eea;">✓</strong> Diagnosing run history failures</div>
+                    <div><strong style="color: #667eea;">✓</strong> Troubleshooting under uncertainty</div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Example:</strong> Azure Function 403 error OR LRDS flow classification failure
+                </p>
+            </div>
+            
+            <div class="example-card">
+                <div class="example-title">Use the Problem-Solving Examples from Master Guide</div>
+                <p style="color: #2c3e50; font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                    For all questions in this category, refer to:<br><br>
+                    <strong>• Master Example 1:</strong> LRDS Flow Classification Issue<br>
+                    <strong>• Master Example 2:</strong> Azure Function 500 Error (Internal Logic Failure)<br><br>
+                    Both demonstrate structured RCA, debugging skills, and proper problem-solving approach.
+                </p>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 3 -->
+        <div class="category-section" id="cat3">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 3</h2>
+                <p>Pressure • Prioritization • Ownership</p>
+            </div>
+            
+            <div class="questions-covered">
+                <h3>📋 Questions This Category Covers:</h3>
+                <div class="q-grid">
+                    <div><strong style="color: #667eea;">✓</strong> Handle pressure</div>
+                    <div><strong style="color: #667eea;">✓</strong> Multiple priorities at once</div>
+                    <div><strong style="color: #667eea;">✓</strong> Taking ownership</div>
+                    <div><strong style="color: #667eea;">✓</strong> Managing incidents + BAU</div>
+                    <div><strong style="color: #667eea;">✓</strong> Handling urgent stakeholders</div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Example:</strong> Conduent SR failures + BAU pressure + staying calm
+                </p>
+            </div>
+            
+            <div class="example-card">
+                <div class="example-title">Use the Pressure/Ownership Examples from Master Guide</div>
+                <p style="color: #2c3e50; font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                    For all questions in this category, refer to:<br><br>
+                    <strong>• Master Example 1:</strong> High-Volume SR Failures + BAU Pressure<br>
+                    <strong>• Master Example 2:</strong> Parallel UAT Issues + Client Deadline<br><br>
+                    Both show prioritization, calm handling, ownership, and structured communication under pressure.
+                </p>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 4 -->
+        <div class="category-section" id="cat4">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 4</h2>
+                <p>Learning • Adaptability • Feedback</p>
+            </div>
+            
+            <div class="questions-covered">
+                <h3>📋 Questions This Category Covers:</h3>
+                <div class="q-grid">
+                    <div><strong style="color: #667eea;">✓</strong> Learning new tool quickly</div>
+                    <div><strong style="color: #667eea;">✓</strong> Receiving constructive feedback</div>
+                    <div><strong style="color: #667eea;">✓</strong> Figured something out</div>
+                    <div><strong style="color: #667eea;">✓</strong> Personal development</div>
+                    <div><strong style="color: #667eea;">✓</strong> Recent achievement</div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Example:</strong> Learning Azure Function/Graph API OR Learning governance/DLP at Conduent
+                </p>
+            </div>
+            
+            <div class="example-card">
+                <div class="example-title">Use the Learning/Adaptability Examples from Master Guide</div>
+                <p style="color: #2c3e50; font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                    For all questions in this category, refer to:<br><br>
+                    <strong>• Master Example 1:</strong> Learning Azure Function + Graph API Fast<br>
+                    <strong>• Master Example 2:</strong> Learning Governance + DLP + SA Rules<br><br>
+                    Both demonstrate growth mindset, coachability, and ability to learn quickly.
+                </p>
+            </div>
+        </div>
+        
+        <!-- CATEGORY 5 -->
+        <div class="category-section" id="cat5">
+            <div class="category-header">
+                <h2>⭐ CATEGORY 5</h2>
+                <p>Scenario / "What Would You Do If..."</p>
+            </div>
+            
+            <div class="questions-covered">
+                <h3>📋 Questions This Category Covers:</h3>
+                <div class="q-grid">
+                    <div><strong style="color: #667eea;">✓</strong> Flow failing in production</div>
+                    <div><strong style="color: #667eea;">✓</strong> Permissions issue blocking work</div>
+                    <div><strong style="color: #667eea;">✓</strong> Poorly documented flow inherited</div>
+                    <div><strong style="color: #667eea;">✓</strong> Governance/DLP blocking</div>
+                    <div><strong style="color: #667eea;">✓</strong> All "How would you handle..." questions</div>
+                </div>
+                <p style="margin-top: 20px; color: #2c3e50; font-size: 1.1em; font-style: italic;">
+                    <strong>💡 Use ONE Approach:</strong> Run history → investigate → communicate → fix → prevent
+                </p>
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #2196f3;">
+                    <p style="color: #1565c0; font-size: 1.05em; line-height: 1.8;">
+                        <strong>🎯 Use the UNIVERSAL ERROR-HANDLING answer above for ALL scenario questions!</strong>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="example-card">
+                <div class="example-title">Use the Scenario Examples from Master Guide</div>
+                <p style="color: #2c3e50; font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                    For all questions in this category, refer to:<br><br>
+                    <strong>• Scenario 1:</strong> Flow Suddenly Starts Failing in Production<br>
+                    <strong>• Scenario 2:</strong> You Inherit a Badly Documented, Unstable Flow<br><br>
+                    <strong>OR simply use the UNIVERSAL ERROR-HANDLING answer at the top of this document!</strong>
+                </p>
+            </div>
+        </div>
+        
+        <div style="background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+            <h3 style="color: #667eea; font-size: 2em; margin-bottom: 15px;">✅ Complete Guide Ready!</h3>
+            <p style="color: #666; font-size: 1.1em;">
+                Use the <strong>Universal Error-Handling Answer</strong> for any troubleshooting/scenario question<br>
+                Reference the <strong>Master Examples Guide</strong> for detailed STAR stories for each category
+            </p>
+        </div>
+        
+    </div>
+</body>
+</html>
