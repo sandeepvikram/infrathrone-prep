@@ -183,3 +183,60 @@ Results validated against Power Automate UI
 Output exported for reporting and migration analysis
 
 Approach is repeatable across Dev / UAT / Prod by switching environment ID
+
+
+
+
+
+Commands Used – Issues & Resolution (Get-FlowRun)
+1. Command used to list environments
+Get-AdminPowerAppEnvironment | Select DisplayName, EnvironmentName
+
+2. Command used to retrieve flow inventory (no run history)
+Get-AdminFlow -EnvironmentName <EnvironmentId>
+
+
+Note:
+This command does not return last run information.
+
+3. Command used to retrieve last run for a single flow (working command)
+Get-FlowRun -EnvironmentName <EnvironmentId> -FlowName <FlowId> |
+Sort-Object StartTime -Descending |
+Select-Object -First 1
+
+
+Fields returned
+
+StartTime
+
+Status
+
+4. Command used to validate flow object structure (to confirm no last run in admin output)
+$flows[0] | ConvertTo-Json -Depth 10
+
+5. Command used to confirm cmdlet availability
+Get-Command Get-FlowRun
+
+6. Authentication command required before executing flow/run commands
+Add-PowerAppsAccount
+
+7. Example command used to test a specific flow’s last run
+$envId  = "<EnvironmentId>"
+$flowId = "<FlowId>"
+
+Get-FlowRun -EnvironmentName $envId -FlowName $flowId |
+Sort-Object StartTime -Descending |
+Select-Object -First 1
+
+8. Command used to export results after merging flow + run data
+Export-Csv <PathToCsv> -NoTypeInformation -Encoding UTF8
+
+Summary (you can paste this under Issues)
+
+Get-AdminFlow was used to retrieve flow inventory but does not expose run history.
+
+Get-FlowRun was required to retrieve last run date/time and status.
+
+Get-FlowRun had to be executed per flow to obtain accurate last run data.
+
+Results were validated against the Power Automate UI run history.
